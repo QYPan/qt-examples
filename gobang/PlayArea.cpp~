@@ -1,0 +1,107 @@
+#include <QtGui>
+#include "PlayArea.h"
+#include <string.h>
+#define JUDGE_EDGE(x, y) \
+	((x < 0 || x >= MAPSIZE || y < 0 || y >= MAPSIZE) ? 0 : 1)
+
+PlayArea::
+PlayArea(QWidget *parent)
+	: QWidget(parent), player(0), winner(-1)
+{
+	QSize size(PLAYWIDTH, PLAYHEIGHT);
+	setFixedSize(size);
+	memset(chessMap, -1, sizeof(chessMap));
+
+	chessPixmap = new QPixmap(size);
+	chessPixmap->fill(Qt::transparent);
+	update();
+
+
+	QPixmap *pixmap = new QPixmap(size);
+	pixmap->fill(QColor(170, 85, 0, 131));
+	QPainter painter(pixmap);
+	painter.setPen(QPen(QBrush(QColor(0, 0, 0, 200)), 2));
+	for(int i = 0; i < 15; i++){
+		for(int j = 0; j < 15; j++){
+			painter.drawLine(40, 40+i*40, 600, 40+i*40);
+			painter.drawLine(40+i*40, 40, 40+i*40, 600);
+		}
+	}
+	setAutoFillBackground(true);
+	QPalette pl = palette();
+	pl.setBrush(QPalette::Window, QBrush(*pixmap));
+	setPalette(pl);
+}
+
+void PlayArea::
+paintEvent(QPaintEvent *event){
+	QPainter painter(this);
+	QRect dirtyRect = event->rect();
+	painter.drawPixmap(dirtyRect, *chessPixmap, dirtyRect);
+}
+
+void PlayArea::
+mouseReleaseEvent(QMouseEvent *event){
+	int x = event->x();
+	int y = event->y();
+	QPainter painter(chessPixmap);
+	if(event->button() == Qt::LeftButton){
+		if(x >= 20 && x <= 620 && y >= 20 && y <= 620){
+			int cx = (x - 20) / 40;
+			int cy = (y - 20) / 40;
+			if(chessMap[cx][cy] != -1)
+				return;
+			chessMap[cx][cy] = player;
+			chessStack.push(State(cx, cy, player));
+			int lx = 40 + cx * 40;
+			int ly = 40 + cy * 40;
+			painter.setPen(Qt::NoPen);
+			if(player)
+				painter.setBrush(QColor(255, 255, 255, 200));
+			else
+				painter.setBrush(QColor(0, 0, 0, 200));
+			painter.drawEllipse(QPoint(lx, ly), 18, 18);
+			update(QRect(QPoint(lx-18, ly-18), QSize(36, 36)).
+					normalized().adjusted(-2, -2, 2, 2));
+			winner = isWin(cx, cy, player);
+			if(winner != -1){
+				setEnabled(false);
+				QMessageBox::information(this, "Win", "winner", QMessageBox::Ok);
+			}
+			player ^= 1;
+		}
+	}
+}
+
+int PlayArea::
+isWin(int x, int y, int p){
+	int ans1 = calculate(x, y, p, 1, 0);
+	int ans2 = calculate(x, y, p, 0, 1);
+	int ans3 = calculate(x, y, p, 1, 1);
+	int ans4 = calculate(x, y, p, -1, 1);
+	if(ans1 != -1 || ans2 != -1 || ans3 != -1 || ans4 != -1)
+		return p;
+	return -1;
+}
+
+int PlayArea::
+calculate(int x, int y, int p, int d1, int d2){
+	int i = x - d1;
+	int j = y - d2;
+	int count = 1;
+	while(JUDGE_EDGE(i, j) && chessMap[i][j] == p){
+		count++;
+		i -= d1;
+		j -= d2;
+	}
+	i = x + d1;
+	j = y + d2;
+	while(JUDGE_EDGE(i, j) && chessMap[i][j] == p){
+		count++;
+		i += d1;
+		j += d2;
+	}
+	if(count >= 5)
+		return p;
+	return -1;
+}
