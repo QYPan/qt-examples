@@ -7,11 +7,11 @@ PlayArea::
 PlayArea(QWidget *parent)
 	: QWidget(parent), player(0), winner(-1), pathx(-1), pathy(-1)
 {
-	PLAYWIDTH = 640;
-	PLAYHEIGHT = 640;
-	RADIUS = 16;
-	QSize size(PLAYWIDTH, PLAYHEIGHT);
+	QSize size(640, 640);
 	setFixedSize(size);
+	EDGESIZE = qMin(width(), height());
+	SUBE = EDGESIZE / 16;
+	RADIUS = 2 * SUBE / 5;
 
 	memset(chessMap, -1, sizeof(chessMap));
 
@@ -27,8 +27,8 @@ PlayArea(QWidget *parent)
 	painter.setPen(QPen(QBrush(QColor(0, 0, 0)), 2));
 	for(int i = 0; i < 15; i++){
 		for(int j = 0; j < 15; j++){
-			painter.drawLine(40, 40+i*40, 600, 40+i*40);
-			painter.drawLine(40+i*40, 40, 40+i*40, 600);
+			painter.drawLine(SUBE, SUBE+i*SUBE, SUBE*15, SUBE+i*SUBE);
+			painter.drawLine(SUBE+i*SUBE, SUBE, SUBE+i*SUBE, SUBE*15);
 		}
 	}
 	setAutoFillBackground(true);
@@ -39,7 +39,7 @@ PlayArea(QWidget *parent)
 	thread = new CalThread();
 	connect(thread, SIGNAL(sendSignal(int, int, int)), this, SLOT(addChess(int, int, int)));
 
-	firstGo(0);
+	firstGo(1);
 	installEventFilter(this);
 }
 
@@ -47,24 +47,24 @@ void PlayArea::
 initCurrentPath(){
 	RADIUS++;
 	curpath.moveTo(-RADIUS, RADIUS);
-	curpath.lineTo(-(RADIUS-6), RADIUS);
+	curpath.lineTo(-(3*RADIUS/4), RADIUS);
 	curpath.moveTo(-RADIUS, RADIUS);
-	curpath.lineTo(-RADIUS, (RADIUS-6));
+	curpath.lineTo(-RADIUS, (3*RADIUS/4));
 
 	curpath.moveTo(RADIUS, RADIUS);
-	curpath.lineTo((RADIUS-6), RADIUS);
+	curpath.lineTo((3*RADIUS/4), RADIUS);
 	curpath.moveTo(RADIUS, RADIUS);
-	curpath.lineTo(RADIUS, (RADIUS-6));
+	curpath.lineTo(RADIUS, (3*RADIUS/4));
 
 	curpath.moveTo(-RADIUS, -RADIUS);
-	curpath.lineTo(-RADIUS, -(RADIUS-6));
+	curpath.lineTo(-RADIUS, -(3*RADIUS/4));
 	curpath.moveTo(-RADIUS, -RADIUS);
-	curpath.lineTo(-(RADIUS-6), -RADIUS);
+	curpath.lineTo(-(3*RADIUS/4), -RADIUS);
 
 	curpath.moveTo(RADIUS, -RADIUS);
-	curpath.lineTo(RADIUS, -(RADIUS-6));
+	curpath.lineTo(RADIUS, -(3*RADIUS/4));
 	curpath.moveTo(RADIUS, -RADIUS);
-	curpath.lineTo((RADIUS-6), -RADIUS);
+	curpath.lineTo((3*RADIUS/4), -RADIUS);
 	RADIUS--;
 }
 
@@ -76,7 +76,8 @@ eventFilter(QObject *obj, QEvent *event){
 			int kevent = keyEvent->key();
 			if(kevent == Qt::Key_Up || kevent == Qt::Key_Down || 
 				kevent == Qt::Key_Left || kevent == Qt::Key_Right
-				|| kevent == Qt::Key_Enter || kevent == Qt::Key_Return){
+				|| kevent == Qt::Key_Enter || kevent == Qt::Key_Return
+				|| kevent == Qt::Key_Q){
 				return false;
 			}
 			return true;
@@ -121,8 +122,8 @@ drawChess(int x, int y, int player){
 	QColor blackColor(0, 0, 0);
 	QColor whiteColor(255, 255, 255);
 
-	int lx = 40 + x * 40;
-	int ly = 40 + y * 40;
+	int lx = SUBE + x * SUBE;
+	int ly = SUBE + y * SUBE;
 	chessPainter.begin(chessPixmap);
 	chessPainter.setRenderHint(QPainter::Antialiasing, true);
 	chessPainter.setCompositionMode(QPainter::CompositionMode_Source);
@@ -141,8 +142,8 @@ void PlayArea::
 drawCurrentPath(int x, int y){
 	pathx = x;
 	pathy = y;
-	int lx = 40 + x * 40;
-	int ly = 40 + y * 40;
+	int lx = SUBE + x * SUBE;
+	int ly = SUBE + y * SUBE;
 	chessPainter.begin(chessPixmap);
 	chessPainter.setRenderHint(QPainter::Antialiasing, true);
 	chessPainter.setCompositionMode(QPainter::CompositionMode_Source);
@@ -163,8 +164,8 @@ erasePath(int x, int y){
 		return false;
 
 	QColor emptyColor(0, 0, 0, 0);
-	int lx = 40 + x * 40;
-	int ly = 40 + y * 40;
+	int lx = SUBE + x * SUBE;
+	int ly = SUBE + y * SUBE;
 
 	chessPainter.begin(chessPixmap);
 	chessPainter.setRenderHint(QPainter::Antialiasing, true);
@@ -209,6 +210,9 @@ void PlayArea::
 backChess(){
 	if(chessStack.size() >= 2){
 		erasePath(pathx, pathy);
+		int perplayer = chessMap[pathy][pathx];
+		if(perplayer != -1)
+			drawChess(pathx, pathy, perplayer);
 		for(int i = 0; i < 2; i++){
 			State s = chessStack.top();
 			erasePath(s.x, s.y);
@@ -229,16 +233,6 @@ computerTurn(){
 	int tmpM[MAPSIZE+5][MAPSIZE+5];
 	outChessMap(tmpM);
 
-#if 0
-	QTextStream out(stdout);
-	for(int i = 0; i < MAPSIZE; i++){
-		for(int j = 0; j < MAPSIZE; j++){
-			out << tmpM[i][j] << " ";
-		}
-		out << "\n";
-	}
-#endif
-
 	thread->setP(player, tmpM);
 	thread->start();
 }
@@ -247,11 +241,11 @@ void PlayArea::
 mouseReleaseEvent(QMouseEvent *event){
 	int x = event->x();
 	int y = event->y();
-	if(x < 20 || x > 620 || y < 20 || y > 620)
+	if(!player || x < SUBE/2 || x > EDGESIZE-SUBE/2 || y < SUBE/2 || y > EDGESIZE-SUBE/2)
 		return;
 
-	int cx = (x - 20) / 40;
-	int cy = (y - 20) / 40;
+	int cx = (x - SUBE/2) / SUBE;
+	int cy = (y - SUBE/2) / SUBE;
 	if(event->button() == Qt::LeftButton){
 		addChess(cx, cy, player);
 		computerTurn();
@@ -263,7 +257,7 @@ mouseReleaseEvent(QMouseEvent *event){
 
 void PlayArea::
 keyPressEvent(QKeyEvent *event){
-	if(pathx != -1){
+	if(player && pathx != -1){
 		if(event->key() == Qt::Key_Enter || event->key() == Qt::Key_Return){
 			addChess(pathx, pathy, player); 
 			computerTurn();
@@ -287,6 +281,9 @@ keyPressEvent(QKeyEvent *event){
 				break;
 			case Qt::Key_Right :
 				drawCurrentPath((pathx+1>=MAPSIZE?0:pathx+1), pathy);
+				break;
+			case Qt::Key_Q:
+				backChess();
 				break;
 			default :
 				QWidget::keyPressEvent(event);

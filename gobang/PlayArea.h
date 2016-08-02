@@ -7,10 +7,6 @@
 #include "CalThread.h"
 #define MAPSIZE 15
 
-class QWidget;
-class QPixmap;
-class QPaintEvent;
-
 class PlayArea : public QWidget{
 	Q_OBJECT
 public:
@@ -54,9 +50,9 @@ private:
 	int winner;
 	int pathx;
 	int pathy;
-	int RADIUS;
-	int PLAYWIDTH;
-	int PLAYHEIGHT;
+	int RADIUS; // the radius of the chess
+	int SUBE; // the size of each block
+	int EDGESIZE; // the size of the chess map
 };
 
 #endif

@@ -3,114 +3,26 @@ Flat profile:
 Each sample counts as 0.01 seconds.
   %   cumulative   self              self     total           
  time   seconds   seconds    calls  Ts/call  Ts/call  name    
- 79.68      2.31     2.31                             cal_chess(Points*, Coor*, int, int)
-  8.28      2.55     0.24                             get_points(Coor*, int*)
-  4.83      2.69     0.14                             computerGo(int (*) [20], int, int&, int&)
-  1.72      2.74     0.05                             change_cpoint(int, int)
-  1.38      2.78     0.04                             init_time()
-  1.38      2.82     0.04                             set_order(Subpoints*)
-  1.03      2.85     0.03                             cal_all_points(Coor*, int*)
-  0.69      2.87     0.02                             find_in_hash(int, int, int, long long)
-  0.69      2.89     0.02                             cal_point(int, int)
-  0.34      2.90     0.01                             compare(void const*, void const*)
-  0.00      2.90     0.00     1163     0.00     0.00  QPoint::QPoint(int, int)
-  0.00      2.90     0.00      450     0.00     0.00  QLine::QLine(int, int, int, int)
-  0.00      2.90     0.00      450     0.00     0.00  QPainter::drawLine(int, int, int, int)
-  0.00      2.90     0.00      271     0.00     0.00  QPoint::x() const
-  0.00      2.90     0.00      271     0.00     0.00  QPoint::y() const
-  0.00      2.90     0.00      129     0.00     0.00  QEvent::type() const
-  0.00      2.90     0.00       84     0.00     0.00  QColor::QColor(int, int, int, int)
-  0.00      2.90     0.00       82     0.00     0.00  QRect::QRect(QPoint const&, QPoint const&)
-  0.00      2.90     0.00       82     0.00     0.00  QRect::adjusted(int, int, int, int) const
-  0.00      2.90     0.00       68     0.00     0.00  PlayArea::calculate(int, int, int, int, int)
-  0.00      2.90     0.00       67     0.00     0.00  QSize::QSize(int, int)
-  0.00      2.90     0.00       66     0.00     0.00  QRect::QRect(QPoint const&, QSize const&)
-  0.00      2.90     0.00       66     0.00     0.00  QSize::width() const
-  0.00      2.90     0.00       66     0.00     0.00  QSize::height() const
-  0.00      2.90     0.00       49     0.00     0.00  QRect::QRect(int, int, int, int)
-  0.00      2.90     0.00       40     0.00     0.00  QRectF::QRectF(QRect const&)
-  0.00      2.90     0.00       40     0.00     0.00  QRect::x() const
-  0.00      2.90     0.00       40     0.00     0.00  QRect::y() const
-  0.00      2.90     0.00       40     0.00     0.00  QRect::width() const
-  0.00      2.90     0.00       40     0.00     0.00  QRect::height() const
-  0.00      2.90     0.00       33     0.00     0.00  PlayArea::drawChess(int, int, int)
-  0.00      2.90     0.00       33     0.00     0.00  QPainter::drawEllipse(QPoint const&, int, int)
-  0.00      2.90     0.00       20     0.00     0.00  QPainter::drawPixmap(QRect const&, QPixmap const&, QRect const&)
-  0.00      2.90     0.00       20     0.00     0.00  QPaintEvent::rect() const
-  0.00      2.90     0.00       17     0.00     0.00  PlayArea::drawCurrentPath(int, int)
-  0.00      2.90     0.00       17     0.00     0.00  PlayArea::State::State(int, int, int)
-  0.00      2.90     0.00       17     0.00     0.00  PlayArea::isWin(int, int, int)
-  0.00      2.90     0.00       17     0.00     0.00  PlayArea::addChess(int, int, int)
-  0.00      2.90     0.00       17     0.00     0.00  __gnu_cxx::new_allocator<PlayArea::State>::construct(PlayArea::State*, PlayArea::State const&)
-  0.00      2.90     0.00       17     0.00     0.00  std::deque<PlayArea::State, std::allocator<PlayArea::State> >::push_back(PlayArea::State const&)
-  0.00      2.90     0.00       17     0.00     0.00  std::stack<PlayArea::State, std::deque<PlayArea::State, std::allocator<PlayArea::State> > >::push(PlayArea::State const&)
-  0.00      2.90     0.00       17     0.00     0.00  operator new(unsigned long, void*)
-  0.00      2.90     0.00       16     0.00     0.00  QPointF::QPointF(double, double)
-  0.00      2.90     0.00       16     0.00     0.00  PlayArea::erasePath(int, int)
-  0.00      2.90     0.00       16     0.00     0.00  QPainter::drawRect(QRect const&)
-  0.00      2.90     0.00       11     0.00     0.00  std::__deque_buf_size(unsigned long)
-  0.00      2.90     0.00        8     0.00     0.00  QPainterPath::lineTo(double, double)
-  0.00      2.90     0.00        8     0.00     0.00  QPainterPath::moveTo(double, double)
-  0.00      2.90     0.00        8     0.00     0.00  PlayArea::outChessMap(int (*) [20])
-  0.00      2.90     0.00        8     0.00     0.00  PlayArea::computerTurn()
-  0.00      2.90     0.00        8     0.00     0.00  QMouseEvent::x() const
-  0.00      2.90     0.00        8     0.00     0.00  QMouseEvent::y() const
-  0.00      2.90     0.00        8     0.00     0.00  QMouseEvent::button() const
-  0.00      2.90     0.00        6     0.00     0.00  std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>::_Deque_iterator(std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*> const&)
-  0.00      2.90     0.00        5     0.00     0.00  std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>::_S_buffer_size()
-  0.00      2.90     0.00        4     0.00     0.00  std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>::_M_set_node(PlayArea::State**)
-  0.00      2.90     0.00        4     0.00     0.00  std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>::_Deque_iterator()
-  0.00      2.90     0.00        3     0.00     0.00  std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_M_get_Tp_allocator() const
-  0.00      2.90     0.00        2     0.00     0.00  QBasicAtomicInt::deref()
-  0.00      2.90     0.00        2     0.00     0.00  QString::QString(char const*)
-  0.00      2.90     0.00        2     0.00     0.00  QString::~QString()
-  0.00      2.90     0.00        2     0.00     0.00  __gnu_cxx::new_allocator<PlayArea::State>::allocate(unsigned long, void const*)
-  0.00      2.90     0.00        2     0.00     0.00  __gnu_cxx::new_allocator<PlayArea::State*>::allocate(unsigned long, void const*)
-  0.00      2.90     0.00        2     0.00     0.00  __gnu_cxx::new_allocator<PlayArea::State*>::new_allocator()
-  0.00      2.90     0.00        2     0.00     0.00  __gnu_cxx::new_allocator<PlayArea::State*>::~new_allocator()
-  0.00      2.90     0.00        2     0.00     0.00  __gnu_cxx::new_allocator<PlayArea::State>::max_size() const
-  0.00      2.90     0.00        2     0.00     0.00  __gnu_cxx::new_allocator<PlayArea::State*>::max_size() const
-  0.00      2.90     0.00        2     0.00     0.00  std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_M_get_map_allocator() const
-  0.00      2.90     0.00        2     0.00     0.00  std::allocator<PlayArea::State*>::allocator<PlayArea::State>(std::allocator<PlayArea::State> const&)
-  0.00      2.90     0.00        2     0.00     0.00  std::allocator<PlayArea::State*>::~allocator()
-  0.00      2.90     0.00        2     0.00     0.00  std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_M_allocate_map(unsigned long)
-  0.00      2.90     0.00        2     0.00     0.00  std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_M_create_nodes(PlayArea::State**, PlayArea::State**)
-  0.00      2.90     0.00        2     0.00     0.00  std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_M_allocate_node()
-  0.00      2.90     0.00        2     0.00     0.00  std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_M_initialize_map(unsigned long)
-  0.00      2.90     0.00        2     0.00     0.00  std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_M_get_Tp_allocator()
-  0.00      2.90     0.00        2     0.00     0.00  std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>::_Deque_iterator(std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*> const&)
-  0.00      2.90     0.00        2     0.00     0.00  unsigned long const& std::max<unsigned long>(unsigned long const&, unsigned long const&)
-  0.00      2.90     0.00        1     0.00     0.00  QMessageBox::information(QWidget*, QString const&, QString const&, QMessageBox::StandardButton, QMessageBox::StandardButton)
-  0.00      2.90     0.00        1     0.00     0.00  QFlags<QMessageBox::StandardButton>::QFlags(QMessageBox::StandardButton)
-  0.00      2.90     0.00        1     0.00     0.00  QFlags<Qt::WindowType>::QFlags(void**)
-  0.00      2.90     0.00        1     0.00     0.00  PlayArea::initCurrentPath()
-  0.00      2.90     0.00        1     0.00     0.00  PlayArea::firstGo(int)
-  0.00      2.90     0.00        1     0.00     0.00  QPalette::setBrush(QPalette::ColorRole, QBrush const&)
-  0.00      2.90     0.00        1     0.00     0.00  CalThread::CalThread()
-  0.00      2.90     0.00        1     0.00     0.00  __gnu_cxx::new_allocator<PlayArea::State>::new_allocator()
-  0.00      2.90     0.00        1     0.00     0.00  __gnu_cxx::new_allocator<PlayArea::State>::new_allocator(__gnu_cxx::new_allocator<PlayArea::State> const&)
-  0.00      2.90     0.00        1     0.00     0.00  std::deque<PlayArea::State, std::allocator<PlayArea::State> >::end() const
-  0.00      2.90     0.00        1     0.00     0.00  std::deque<PlayArea::State, std::allocator<PlayArea::State> >::size() const
-  0.00      2.90     0.00        1     0.00     0.00  std::deque<PlayArea::State, std::allocator<PlayArea::State> >::begin() const
-  0.00      2.90     0.00        1     0.00     0.00  std::allocator<PlayArea::State>::allocator(std::allocator<PlayArea::State> const&)
-  0.00      2.90     0.00        1     0.00     0.00  std::allocator<PlayArea::State>::allocator()
-  0.00      2.90     0.00        1     0.00     0.00  std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_Deque_impl::_Deque_impl(std::allocator<PlayArea::State> const&)
-  0.00      2.90     0.00        1     0.00     0.00  std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_Deque_impl::_Deque_impl()
-  0.00      2.90     0.00        1     0.00     0.00  std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_Deque_base(std::allocator<PlayArea::State> const&, unsigned long)
-  0.00      2.90     0.00        1     0.00     0.00  std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_Deque_base()
-  0.00      2.90     0.00        1     0.00     0.00  std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*> std::__uninitialized_copy<false>::__uninit_copy<std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>, std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*> >(std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>, std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>, std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>)
-  0.00      2.90     0.00        1     0.00     0.00  std::deque<PlayArea::State, std::allocator<PlayArea::State> >::_M_destroy_data(std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>, std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>, std::allocator<PlayArea::State> const&)
-  0.00      2.90     0.00        1     0.00     0.00  std::deque<PlayArea::State, std::allocator<PlayArea::State> >::end()
-  0.00      2.90     0.00        1     0.00     0.00  std::deque<PlayArea::State, std::allocator<PlayArea::State> >::begin()
-  0.00      2.90     0.00        1     0.00     0.00  std::deque<PlayArea::State, std::allocator<PlayArea::State> >::deque(std::deque<PlayArea::State, std::allocator<PlayArea::State> > const&)
-  0.00      2.90     0.00        1     0.00     0.00  std::deque<PlayArea::State, std::allocator<PlayArea::State> >::deque()
-  0.00      2.90     0.00        1     0.00     0.00  std::deque<PlayArea::State, std::allocator<PlayArea::State> >::~deque()
-  0.00      2.90     0.00        1     0.00     0.00  std::stack<PlayArea::State, std::deque<PlayArea::State, std::allocator<PlayArea::State> > >::stack(std::deque<PlayArea::State, std::allocator<PlayArea::State> > const&)
-  0.00      2.90     0.00        1     0.00     0.00  std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*> std::uninitialized_copy<std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>, std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*> >(std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>, std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>, std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>)
-  0.00      2.90     0.00        1     0.00     0.00  std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*> std::__uninitialized_copy_a<std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>, std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>, PlayArea::State>(std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>, std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>, std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>, std::allocator<PlayArea::State>&)
-  0.00      2.90     0.00        1     0.00     0.00  bool std::operator==<PlayArea::State, PlayArea::State const&, PlayArea::State const*>(std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*> const&, std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*> const&)
-  0.00      2.90     0.00        1     0.00     0.00  std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>::difference_type std::operator-<PlayArea::State, PlayArea::State&, PlayArea::State*>(std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*> const&, std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*> const&)
-  0.00      2.90     0.00        1     0.00     0.00  bool std::operator!=<PlayArea::State, PlayArea::State const&, PlayArea::State const*>(std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*> const&, std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*> const&)
+ 78.74      8.69     8.69                             cal_chess(Points*, Coor*, int, int)
+  7.43      9.51     0.82                             get_points(Coor*, int*)
+  4.08      9.96     0.45                             PlayArea::~PlayArea()
+  3.26     10.32     0.36                             change_cpoint(int, int)
+  2.72     10.62     0.30                             cal_all_points(Coor*, int*)
+  1.90     10.83     0.21                             cal_point(int, int)
+  0.68     10.91     0.08                             cal_zobrist()
+  0.45     10.96     0.05                             init_hashtable()
+  0.41     11.00     0.05                             set_order(Subpoints*)
+  0.27     11.03     0.03                             alpha_beta(int, int, int, int, long long)
+  0.09     11.04     0.01                             find_in_hash(int, int, int, long long)
+  0.00     11.04     0.00    14819     0.00     0.00  _fini
+  0.00     11.04     0.00      593     0.00     0.00  PlayArea::PlayArea(QWidget*)
+  0.00     11.04     0.00      511     0.00     0.00  PlayArea::mouseReleaseEvent(QMouseEvent*)
+  0.00     11.04     0.00      298     0.00     0.00  PlayArea::isWin(int, int, int)
+  0.00     11.04     0.00      252     0.00     0.00  __libc_csu_init
+  0.00     11.04     0.00       63     0.00     0.00  PlayArea::qt_metacast(char const*)
+  0.00     11.04     0.00       51     0.00     0.00  std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_M_initialize_map(unsigned long)
+  0.00     11.04     0.00       31     0.00     0.00  PlayArea::calculate(int, int, int, int, int)
+  0.00     11.04     0.00        1     0.00     0.00  PlayArea::drawCurrentPath(int, int)
 
  %         the percentage of the total running time of the
 time       program used by this function.
@@ -148,482 +60,103 @@ notice and this notice are preserved.
 		     Call graph (explanation follows)
 
 
-granularity: each sample hit covers 2 byte(s) for 0.34% of 2.90 seconds
+granularity: each sample hit covers 2 byte(s) for 0.09% of 11.04 seconds
 
 index % time    self  children    called     name
                                                  <spontaneous>
-[1]     79.7    2.31    0.00                 cal_chess(Points*, Coor*, int, int) [1]
+[1]     78.7    8.69    0.00                 cal_chess(Points*, Coor*, int, int) [1]
 -----------------------------------------------
                                                  <spontaneous>
-[2]      8.3    0.24    0.00                 get_points(Coor*, int*) [2]
+[2]      7.4    0.82    0.00                 get_points(Coor*, int*) [2]
 -----------------------------------------------
                                                  <spontaneous>
-[3]      4.8    0.14    0.00                 computerGo(int (*) [20], int, int&, int&) [3]
+[3]      4.1    0.45    0.00                 PlayArea::~PlayArea() [3]
 -----------------------------------------------
                                                  <spontaneous>
-[4]      1.7    0.05    0.00                 change_cpoint(int, int) [4]
+[4]      3.3    0.36    0.00                 change_cpoint(int, int) [4]
 -----------------------------------------------
                                                  <spontaneous>
-[5]      1.4    0.04    0.00                 init_time() [5]
+[5]      2.7    0.30    0.00                 cal_all_points(Coor*, int*) [5]
 -----------------------------------------------
                                                  <spontaneous>
-[6]      1.4    0.04    0.00                 set_order(Subpoints*) [6]
+[6]      1.9    0.21    0.00                 cal_point(int, int) [6]
 -----------------------------------------------
                                                  <spontaneous>
-[7]      1.0    0.03    0.00                 cal_all_points(Coor*, int*) [7]
+[7]      0.7    0.08    0.00                 cal_zobrist() [7]
 -----------------------------------------------
                                                  <spontaneous>
-[8]      0.7    0.02    0.00                 find_in_hash(int, int, int, long long) [8]
+[8]      0.5    0.05    0.00                 init_hashtable() [8]
 -----------------------------------------------
                                                  <spontaneous>
-[9]      0.7    0.02    0.00                 cal_point(int, int) [9]
+[9]      0.4    0.05    0.00                 set_order(Subpoints*) [9]
 -----------------------------------------------
                                                  <spontaneous>
-[10]     0.3    0.01    0.00                 compare(void const*, void const*) [10]
------------------------------------------------
-                0.00    0.00      16/1163        PlayArea::erasePath(int, int) [51]
-                0.00    0.00      17/1163        PlayArea::drawCurrentPath(int, int) [42]
-                0.00    0.00      66/1163        PlayArea::drawChess(int, int, int) [38]
-                0.00    0.00     164/1163        QRect::adjusted(int, int, int, int) const [26]
-                0.00    0.00     900/1163        QLine::QLine(int, int, int, int) [19]
-[18]     0.0    0.00    0.00    1163         QPoint::QPoint(int, int) [18]
------------------------------------------------
-                0.00    0.00     450/450         QPainter::drawLine(int, int, int, int) [20]
-[19]     0.0    0.00    0.00     450         QLine::QLine(int, int, int, int) [19]
-                0.00    0.00     900/1163        QPoint::QPoint(int, int) [18]
------------------------------------------------
-                0.00    0.00     450/450         PlayArea::PlayArea(QWidget*) [131]
-[20]     0.0    0.00    0.00     450         QPainter::drawLine(int, int, int, int) [20]
-                0.00    0.00     450/450         QLine::QLine(int, int, int, int) [19]
------------------------------------------------
-                0.00    0.00       8/271         QMouseEvent::x() const [58]
-                0.00    0.00      33/271         QPainter::drawEllipse(QPoint const&, int, int) [39]
-                0.00    0.00      66/271         QRect::QRect(QPoint const&, QSize const&) [29]
-                0.00    0.00     164/271         QRect::QRect(QPoint const&, QPoint const&) [25]
-[21]     0.0    0.00    0.00     271         QPoint::x() const [21]
------------------------------------------------
-                0.00    0.00       8/271         QMouseEvent::y() const [59]
-                0.00    0.00      33/271         QPainter::drawEllipse(QPoint const&, int, int) [39]
-                0.00    0.00      66/271         QRect::QRect(QPoint const&, QSize const&) [29]
-                0.00    0.00     164/271         QRect::QRect(QPoint const&, QPoint const&) [25]
-[22]     0.0    0.00    0.00     271         QPoint::y() const [22]
------------------------------------------------
-                0.00    0.00     129/129         PlayArea::eventFilter(QObject*, QEvent*) [124]
-[23]     0.0    0.00    0.00     129         QEvent::type() const [23]
------------------------------------------------
-                0.00    0.00       2/84          PlayArea::PlayArea(QWidget*) [131]
-                0.00    0.00      16/84          PlayArea::erasePath(int, int) [51]
-                0.00    0.00      66/84          PlayArea::drawChess(int, int, int) [38]
-[24]     0.0    0.00    0.00      84         QColor::QColor(int, int, int, int) [24]
------------------------------------------------
-                0.00    0.00      82/82          QRect::adjusted(int, int, int, int) const [26]
-[25]     0.0    0.00    0.00      82         QRect::QRect(QPoint const&, QPoint const&) [25]
-                0.00    0.00     164/271         QPoint::x() const [21]
-                0.00    0.00     164/271         QPoint::y() const [22]
------------------------------------------------
-                0.00    0.00      17/82          PlayArea::drawCurrentPath(int, int) [42]
-                0.00    0.00      32/82          PlayArea::erasePath(int, int) [51]
-                0.00    0.00      33/82          PlayArea::drawChess(int, int, int) [38]
-[26]     0.0    0.00    0.00      82         QRect::adjusted(int, int, int, int) const [26]
-                0.00    0.00     164/1163        QPoint::QPoint(int, int) [18]
-                0.00    0.00      82/82          QRect::QRect(QPoint const&, QPoint const&) [25]
------------------------------------------------
-                0.00    0.00      68/68          PlayArea::isWin(int, int, int) [44]
-[27]     0.0    0.00    0.00      68         PlayArea::calculate(int, int, int, int, int) [27]
------------------------------------------------
-                0.00    0.00       1/67          PlayArea::PlayArea(QWidget*) [131]
-                0.00    0.00      16/67          PlayArea::erasePath(int, int) [51]
-                0.00    0.00      17/67          PlayArea::drawCurrentPath(int, int) [42]
-                0.00    0.00      33/67          PlayArea::drawChess(int, int, int) [38]
-[28]     0.0    0.00    0.00      67         QSize::QSize(int, int) [28]
------------------------------------------------
-                0.00    0.00      16/66          PlayArea::erasePath(int, int) [51]
-                0.00    0.00      17/66          PlayArea::drawCurrentPath(int, int) [42]
-                0.00    0.00      33/66          PlayArea::drawChess(int, int, int) [38]
-[29]     0.0    0.00    0.00      66         QRect::QRect(QPoint const&, QSize const&) [29]
-                0.00    0.00      66/271         QPoint::x() const [21]
-                0.00    0.00      66/271         QPoint::y() const [22]
-                0.00    0.00      66/66          QSize::width() const [30]
-                0.00    0.00      66/66          QSize::height() const [31]
------------------------------------------------
-                0.00    0.00      66/66          QRect::QRect(QPoint const&, QSize const&) [29]
-[30]     0.0    0.00    0.00      66         QSize::width() const [30]
------------------------------------------------
-                0.00    0.00      66/66          QRect::QRect(QPoint const&, QSize const&) [29]
-[31]     0.0    0.00    0.00      66         QSize::height() const [31]
------------------------------------------------
-                0.00    0.00      16/49          PlayArea::erasePath(int, int) [51]
-                0.00    0.00      33/49          QPainter::drawEllipse(QPoint const&, int, int) [39]
-[32]     0.0    0.00    0.00      49         QRect::QRect(int, int, int, int) [32]
------------------------------------------------
-                0.00    0.00      40/40          QPainter::drawPixmap(QRect const&, QPixmap const&, QRect const&) [40]
-[33]     0.0    0.00    0.00      40         QRectF::QRectF(QRect const&) [33]
-                0.00    0.00      40/40          QRect::x() const [34]
-                0.00    0.00      40/40          QRect::y() const [35]
-                0.00    0.00      40/40          QRect::width() const [36]
-                0.00    0.00      40/40          QRect::height() const [37]
------------------------------------------------
-                0.00    0.00      40/40          QRectF::QRectF(QRect const&) [33]
-[34]     0.0    0.00    0.00      40         QRect::x() const [34]
------------------------------------------------
-                0.00    0.00      40/40          QRectF::QRectF(QRect const&) [33]
-[35]     0.0    0.00    0.00      40         QRect::y() const [35]
------------------------------------------------
-                0.00    0.00      40/40          QRectF::QRectF(QRect const&) [33]
-[36]     0.0    0.00    0.00      40         QRect::width() const [36]
------------------------------------------------
-                0.00    0.00      40/40          QRectF::QRectF(QRect const&) [33]
-[37]     0.0    0.00    0.00      40         QRect::height() const [37]
------------------------------------------------
-                0.00    0.00      33/33          PlayArea::addChess(int, int, int) [45]
-[38]     0.0    0.00    0.00      33         PlayArea::drawChess(int, int, int) [38]
-                0.00    0.00      66/84          QColor::QColor(int, int, int, int) [24]
-                0.00    0.00      66/1163        QPoint::QPoint(int, int) [18]
-                0.00    0.00      33/33          QPainter::drawEllipse(QPoint const&, int, int) [39]
-                0.00    0.00      33/67          QSize::QSize(int, int) [28]
-                0.00    0.00      33/66          QRect::QRect(QPoint const&, QSize const&) [29]
-                0.00    0.00      33/82          QRect::adjusted(int, int, int, int) const [26]
------------------------------------------------
-                0.00    0.00      33/33          PlayArea::drawChess(int, int, int) [38]
-[39]     0.0    0.00    0.00      33         QPainter::drawEllipse(QPoint const&, int, int) [39]
-                0.00    0.00      33/271         QPoint::y() const [22]
-                0.00    0.00      33/271         QPoint::x() const [21]
-                0.00    0.00      33/49          QRect::QRect(int, int, int, int) [32]
------------------------------------------------
-                0.00    0.00      20/20          PlayArea::paintEvent(QPaintEvent*) [123]
-[40]     0.0    0.00    0.00      20         QPainter::drawPixmap(QRect const&, QPixmap const&, QRect const&) [40]
-                0.00    0.00      40/40          QRectF::QRectF(QRect const&) [33]
------------------------------------------------
-                0.00    0.00      20/20          PlayArea::paintEvent(QPaintEvent*) [123]
-[41]     0.0    0.00    0.00      20         QPaintEvent::rect() const [41]
------------------------------------------------
-                0.00    0.00      17/17          PlayArea::addChess(int, int, int) [45]
-[42]     0.0    0.00    0.00      17         PlayArea::drawCurrentPath(int, int) [42]
-                0.00    0.00      17/67          QSize::QSize(int, int) [28]
-                0.00    0.00      17/1163        QPoint::QPoint(int, int) [18]
-                0.00    0.00      17/66          QRect::QRect(QPoint const&, QSize const&) [29]
-                0.00    0.00      17/82          QRect::adjusted(int, int, int, int) const [26]
------------------------------------------------
-                0.00    0.00      17/17          PlayArea::addChess(int, int, int) [45]
-[43]     0.0    0.00    0.00      17         PlayArea::State::State(int, int, int) [43]
------------------------------------------------
-                0.00    0.00      17/17          PlayArea::addChess(int, int, int) [45]
-[44]     0.0    0.00    0.00      17         PlayArea::isWin(int, int, int) [44]
-                0.00    0.00      68/68          PlayArea::calculate(int, int, int, int, int) [27]
------------------------------------------------
-                0.00    0.00       1/17          PlayArea::firstGo(int) [89]
-                0.00    0.00       8/17          PlayArea::mouseReleaseEvent(QMouseEvent*) [128]
-                0.00    0.00       8/17          PlayArea::metaObject() const [146]
-[45]     0.0    0.00    0.00      17         PlayArea::addChess(int, int, int) [45]
-                0.00    0.00      33/33          PlayArea::drawChess(int, int, int) [38]
-                0.00    0.00      17/17          PlayArea::drawCurrentPath(int, int) [42]
-                0.00    0.00      17/17          PlayArea::State::State(int, int, int) [43]
-                0.00    0.00      17/17          std::stack<PlayArea::State, std::deque<PlayArea::State, std::allocator<PlayArea::State> > >::push(PlayArea::State const&) [48]
-                0.00    0.00      17/17          PlayArea::isWin(int, int, int) [44]
-                0.00    0.00      16/16          PlayArea::erasePath(int, int) [51]
-                0.00    0.00       2/2           QString::QString(char const*) [67]
-                0.00    0.00       2/2           QString::~QString() [68]
-                0.00    0.00       1/1           QMessageBox::information(QWidget*, QString const&, QString const&, QMessageBox::StandardButton, QMessageBox::StandardButton) [85]
------------------------------------------------
-                0.00    0.00      17/17          std::deque<PlayArea::State, std::allocator<PlayArea::State> >::push_back(PlayArea::State const&) [47]
-[46]     0.0    0.00    0.00      17         __gnu_cxx::new_allocator<PlayArea::State>::construct(PlayArea::State*, PlayArea::State const&) [46]
-                0.00    0.00      17/17          operator new(unsigned long, void*) [49]
------------------------------------------------
-                0.00    0.00      17/17          std::stack<PlayArea::State, std::deque<PlayArea::State, std::allocator<PlayArea::State> > >::push(PlayArea::State const&) [48]
-[47]     0.0    0.00    0.00      17         std::deque<PlayArea::State, std::allocator<PlayArea::State> >::push_back(PlayArea::State const&) [47]
-                0.00    0.00      17/17          __gnu_cxx::new_allocator<PlayArea::State>::construct(PlayArea::State*, PlayArea::State const&) [46]
------------------------------------------------
-                0.00    0.00      17/17          PlayArea::addChess(int, int, int) [45]
-[48]     0.0    0.00    0.00      17         std::stack<PlayArea::State, std::deque<PlayArea::State, std::allocator<PlayArea::State> > >::push(PlayArea::State const&) [48]
-                0.00    0.00      17/17          std::deque<PlayArea::State, std::allocator<PlayArea::State> >::push_back(PlayArea::State const&) [47]
------------------------------------------------
-                0.00    0.00      17/17          __gnu_cxx::new_allocator<PlayArea::State>::construct(PlayArea::State*, PlayArea::State const&) [46]
-[49]     0.0    0.00    0.00      17         operator new(unsigned long, void*) [49]
------------------------------------------------
-                0.00    0.00       8/16          QPainterPath::moveTo(double, double) [55]
-                0.00    0.00       8/16          QPainterPath::lineTo(double, double) [54]
-[50]     0.0    0.00    0.00      16         QPointF::QPointF(double, double) [50]
------------------------------------------------
-                0.00    0.00      16/16          PlayArea::addChess(int, int, int) [45]
-[51]     0.0    0.00    0.00      16         PlayArea::erasePath(int, int) [51]
-                0.00    0.00      32/82          QRect::adjusted(int, int, int, int) const [26]
-                0.00    0.00      16/84          QColor::QColor(int, int, int, int) [24]
-                0.00    0.00      16/49          QRect::QRect(int, int, int, int) [32]
-                0.00    0.00      16/16          QPainter::drawRect(QRect const&) [52]
-                0.00    0.00      16/67          QSize::QSize(int, int) [28]
-                0.00    0.00      16/1163        QPoint::QPoint(int, int) [18]
-                0.00    0.00      16/66          QRect::QRect(QPoint const&, QSize const&) [29]
------------------------------------------------
-                0.00    0.00      16/16          PlayArea::erasePath(int, int) [51]
-[52]     0.0    0.00    0.00      16         QPainter::drawRect(QRect const&) [52]
------------------------------------------------
-                0.00    0.00       2/11          std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_M_allocate_node() [80]
-                0.00    0.00       4/11          std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_M_initialize_map(unsigned long) [81]
-                0.00    0.00       5/11          std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>::_S_buffer_size() [62]
-[53]     0.0    0.00    0.00      11         std::__deque_buf_size(unsigned long) [53]
------------------------------------------------
-                0.00    0.00       8/8           PlayArea::initCurrentPath() [88]
-[54]     0.0    0.00    0.00       8         QPainterPath::lineTo(double, double) [54]
-                0.00    0.00       8/16          QPointF::QPointF(double, double) [50]
------------------------------------------------
-                0.00    0.00       8/8           PlayArea::initCurrentPath() [88]
-[55]     0.0    0.00    0.00       8         QPainterPath::moveTo(double, double) [55]
-                0.00    0.00       8/16          QPointF::QPointF(double, double) [50]
------------------------------------------------
-                0.00    0.00       8/8           PlayArea::computerTurn() [57]
-[56]     0.0    0.00    0.00       8         PlayArea::outChessMap(int (*) [20]) [56]
------------------------------------------------
-                0.00    0.00       8/8           PlayArea::mouseReleaseEvent(QMouseEvent*) [128]
-[57]     0.0    0.00    0.00       8         PlayArea::computerTurn() [57]
-                0.00    0.00       8/8           PlayArea::outChessMap(int (*) [20]) [56]
------------------------------------------------
-                0.00    0.00       8/8           PlayArea::mouseReleaseEvent(QMouseEvent*) [128]
-[58]     0.0    0.00    0.00       8         QMouseEvent::x() const [58]
-                0.00    0.00       8/271         QPoint::x() const [21]
------------------------------------------------
-                0.00    0.00       8/8           PlayArea::mouseReleaseEvent(QMouseEvent*) [128]
-[59]     0.0    0.00    0.00       8         QMouseEvent::y() const [59]
-                0.00    0.00       8/271         QPoint::y() const [22]
------------------------------------------------
-                0.00    0.00       8/8           PlayArea::mouseReleaseEvent(QMouseEvent*) [128]
-[60]     0.0    0.00    0.00       8         QMouseEvent::button() const [60]
------------------------------------------------
-                0.00    0.00       1/6           std::deque<PlayArea::State, std::allocator<PlayArea::State> >::begin() [106]
-                0.00    0.00       1/6           std::deque<PlayArea::State, std::allocator<PlayArea::State> >::end() [105]
-                0.00    0.00       1/6           std::deque<PlayArea::State, std::allocator<PlayArea::State> >::deque(std::deque<PlayArea::State, std::allocator<PlayArea::State> > const&) [107]
-                0.00    0.00       1/6           std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*> std::__uninitialized_copy_a<std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>, std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>, PlayArea::State>(std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>, std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>, std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>, std::allocator<PlayArea::State>&) [112]
-                0.00    0.00       1/6           std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*> std::uninitialized_copy<std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>, std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*> >(std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>, std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>, std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>) [111]
-                0.00    0.00       1/6           std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*> std::__uninitialized_copy<false>::__uninit_copy<std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>, std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*> >(std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>, std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>, std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>) [103]
-[61]     0.0    0.00    0.00       6         std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>::_Deque_iterator(std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*> const&) [61]
------------------------------------------------
-                0.00    0.00       1/5           std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>::difference_type std::operator-<PlayArea::State, PlayArea::State&, PlayArea::State*>(std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*> const&, std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*> const&) [114]
-                0.00    0.00       4/5           std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>::_M_set_node(PlayArea::State**) [63]
-[62]     0.0    0.00    0.00       5         std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>::_S_buffer_size() [62]
-                0.00    0.00       5/11          std::__deque_buf_size(unsigned long) [53]
------------------------------------------------
-                0.00    0.00       4/4           std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_M_initialize_map(unsigned long) [81]
-[63]     0.0    0.00    0.00       4         std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>::_M_set_node(PlayArea::State**) [63]
-                0.00    0.00       4/5           std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>::_S_buffer_size() [62]
------------------------------------------------
-                0.00    0.00       2/4           std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_Deque_impl::_Deque_impl() [100]
-                0.00    0.00       2/4           std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_Deque_impl::_Deque_impl(std::allocator<PlayArea::State> const&) [99]
-[64]     0.0    0.00    0.00       4         std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>::_Deque_iterator() [64]
------------------------------------------------
-                0.00    0.00       1/3           std::deque<PlayArea::State, std::allocator<PlayArea::State> >::deque(std::deque<PlayArea::State, std::allocator<PlayArea::State> > const&) [107]
-                0.00    0.00       2/3           std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_M_get_map_allocator() const [75]
-[65]     0.0    0.00    0.00       3         std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_M_get_Tp_allocator() const [65]
------------------------------------------------
-                0.00    0.00       2/2           QString::~QString() [68]
-[66]     0.0    0.00    0.00       2         QBasicAtomicInt::deref() [66]
------------------------------------------------
-                0.00    0.00       2/2           PlayArea::addChess(int, int, int) [45]
-[67]     0.0    0.00    0.00       2         QString::QString(char const*) [67]
------------------------------------------------
-                0.00    0.00       2/2           PlayArea::addChess(int, int, int) [45]
-[68]     0.0    0.00    0.00       2         QString::~QString() [68]
-                0.00    0.00       2/2           QBasicAtomicInt::deref() [66]
------------------------------------------------
-                0.00    0.00       2/2           std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_M_allocate_node() [80]
-[69]     0.0    0.00    0.00       2         __gnu_cxx::new_allocator<PlayArea::State>::allocate(unsigned long, void const*) [69]
-                0.00    0.00       2/2           __gnu_cxx::new_allocator<PlayArea::State>::max_size() const [73]
------------------------------------------------
-                0.00    0.00       2/2           std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_M_allocate_map(unsigned long) [78]
-[70]     0.0    0.00    0.00       2         __gnu_cxx::new_allocator<PlayArea::State*>::allocate(unsigned long, void const*) [70]
-                0.00    0.00       2/2           __gnu_cxx::new_allocator<PlayArea::State*>::max_size() const [74]
------------------------------------------------
-                0.00    0.00       2/2           std::allocator<PlayArea::State*>::allocator<PlayArea::State>(std::allocator<PlayArea::State> const&) [76]
-[71]     0.0    0.00    0.00       2         __gnu_cxx::new_allocator<PlayArea::State*>::new_allocator() [71]
------------------------------------------------
-                0.00    0.00       2/2           std::allocator<PlayArea::State*>::~allocator() [77]
-[72]     0.0    0.00    0.00       2         __gnu_cxx::new_allocator<PlayArea::State*>::~new_allocator() [72]
------------------------------------------------
-                0.00    0.00       2/2           __gnu_cxx::new_allocator<PlayArea::State>::allocate(unsigned long, void const*) [69]
-[73]     0.0    0.00    0.00       2         __gnu_cxx::new_allocator<PlayArea::State>::max_size() const [73]
------------------------------------------------
-                0.00    0.00       2/2           __gnu_cxx::new_allocator<PlayArea::State*>::allocate(unsigned long, void const*) [70]
-[74]     0.0    0.00    0.00       2         __gnu_cxx::new_allocator<PlayArea::State*>::max_size() const [74]
------------------------------------------------
-                0.00    0.00       2/2           std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_M_allocate_map(unsigned long) [78]
-[75]     0.0    0.00    0.00       2         std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_M_get_map_allocator() const [75]
-                0.00    0.00       2/3           std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_M_get_Tp_allocator() const [65]
-                0.00    0.00       2/2           std::allocator<PlayArea::State*>::allocator<PlayArea::State>(std::allocator<PlayArea::State> const&) [76]
------------------------------------------------
-                0.00    0.00       2/2           std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_M_get_map_allocator() const [75]
-[76]     0.0    0.00    0.00       2         std::allocator<PlayArea::State*>::allocator<PlayArea::State>(std::allocator<PlayArea::State> const&) [76]
-                0.00    0.00       2/2           __gnu_cxx::new_allocator<PlayArea::State*>::new_allocator() [71]
------------------------------------------------
-                0.00    0.00       2/2           std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_M_allocate_map(unsigned long) [78]
-[77]     0.0    0.00    0.00       2         std::allocator<PlayArea::State*>::~allocator() [77]
-                0.00    0.00       2/2           __gnu_cxx::new_allocator<PlayArea::State*>::~new_allocator() [72]
------------------------------------------------
-                0.00    0.00       2/2           std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_M_initialize_map(unsigned long) [81]
-[78]     0.0    0.00    0.00       2         std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_M_allocate_map(unsigned long) [78]
-                0.00    0.00       2/2           std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_M_get_map_allocator() const [75]
-                0.00    0.00       2/2           __gnu_cxx::new_allocator<PlayArea::State*>::allocate(unsigned long, void const*) [70]
-                0.00    0.00       2/2           std::allocator<PlayArea::State*>::~allocator() [77]
------------------------------------------------
-                0.00    0.00       2/2           std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_M_initialize_map(unsigned long) [81]
-[79]     0.0    0.00    0.00       2         std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_M_create_nodes(PlayArea::State**, PlayArea::State**) [79]
-                0.00    0.00       2/2           std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_M_allocate_node() [80]
------------------------------------------------
-                0.00    0.00       2/2           std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_M_create_nodes(PlayArea::State**, PlayArea::State**) [79]
-[80]     0.0    0.00    0.00       2         std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_M_allocate_node() [80]
-                0.00    0.00       2/11          std::__deque_buf_size(unsigned long) [53]
-                0.00    0.00       2/2           __gnu_cxx::new_allocator<PlayArea::State>::allocate(unsigned long, void const*) [69]
------------------------------------------------
-                0.00    0.00       1/2           std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_Deque_base() [102]
-                0.00    0.00       1/2           std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_Deque_base(std::allocator<PlayArea::State> const&, unsigned long) [101]
-[81]     0.0    0.00    0.00       2         std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_M_initialize_map(unsigned long) [81]
-                0.00    0.00       4/11          std::__deque_buf_size(unsigned long) [53]
-                0.00    0.00       4/4           std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>::_M_set_node(PlayArea::State**) [63]
-                0.00    0.00       2/2           unsigned long const& std::max<unsigned long>(unsigned long const&, unsigned long const&) [84]
-                0.00    0.00       2/2           std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_M_allocate_map(unsigned long) [78]
-                0.00    0.00       2/2           std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_M_create_nodes(PlayArea::State**, PlayArea::State**) [79]
------------------------------------------------
-                0.00    0.00       1/2           std::deque<PlayArea::State, std::allocator<PlayArea::State> >::~deque() [109]
-                0.00    0.00       1/2           std::deque<PlayArea::State, std::allocator<PlayArea::State> >::deque(std::deque<PlayArea::State, std::allocator<PlayArea::State> > const&) [107]
-[82]     0.0    0.00    0.00       2         std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_M_get_Tp_allocator() [82]
------------------------------------------------
-                0.00    0.00       1/2           std::deque<PlayArea::State, std::allocator<PlayArea::State> >::begin() const [96]
-                0.00    0.00       1/2           std::deque<PlayArea::State, std::allocator<PlayArea::State> >::end() const [94]
-[83]     0.0    0.00    0.00       2         std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>::_Deque_iterator(std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*> const&) [83]
------------------------------------------------
-                0.00    0.00       2/2           std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_M_initialize_map(unsigned long) [81]
-[84]     0.0    0.00    0.00       2         unsigned long const& std::max<unsigned long>(unsigned long const&, unsigned long const&) [84]
------------------------------------------------
-                0.00    0.00       1/1           PlayArea::addChess(int, int, int) [45]
-[85]     0.0    0.00    0.00       1         QMessageBox::information(QWidget*, QString const&, QString const&, QMessageBox::StandardButton, QMessageBox::StandardButton) [85]
-                0.00    0.00       1/1           QFlags<QMessageBox::StandardButton>::QFlags(QMessageBox::StandardButton) [86]
------------------------------------------------
-                0.00    0.00       1/1           QMessageBox::information(QWidget*, QString const&, QString const&, QMessageBox::StandardButton, QMessageBox::StandardButton) [85]
-[86]     0.0    0.00    0.00       1         QFlags<QMessageBox::StandardButton>::QFlags(QMessageBox::StandardButton) [86]
------------------------------------------------
-                0.00    0.00       1/1           PlayArea::PlayArea(QWidget*) [131]
-[87]     0.0    0.00    0.00       1         QFlags<Qt::WindowType>::QFlags(void**) [87]
------------------------------------------------
-                0.00    0.00       1/1           PlayArea::PlayArea(QWidget*) [131]
-[88]     0.0    0.00    0.00       1         PlayArea::initCurrentPath() [88]
-                0.00    0.00       8/8           QPainterPath::moveTo(double, double) [55]
-                0.00    0.00       8/8           QPainterPath::lineTo(double, double) [54]
------------------------------------------------
-                0.00    0.00       1/1           PlayArea::PlayArea(QWidget*) [131]
-[89]     0.0    0.00    0.00       1         PlayArea::firstGo(int) [89]
-                0.00    0.00       1/17          PlayArea::addChess(int, int, int) [45]
------------------------------------------------
-                0.00    0.00       1/1           PlayArea::PlayArea(QWidget*) [131]
-[90]     0.0    0.00    0.00       1         QPalette::setBrush(QPalette::ColorRole, QBrush const&) [90]
------------------------------------------------
-                0.00    0.00       1/1           PlayArea::PlayArea(QWidget*) [131]
-[91]     0.0    0.00    0.00       1         CalThread::CalThread() [91]
------------------------------------------------
-                0.00    0.00       1/1           std::allocator<PlayArea::State>::allocator() [98]
-[92]     0.0    0.00    0.00       1         __gnu_cxx::new_allocator<PlayArea::State>::new_allocator() [92]
------------------------------------------------
-                0.00    0.00       1/1           std::allocator<PlayArea::State>::allocator(std::allocator<PlayArea::State> const&) [97]
-[93]     0.0    0.00    0.00       1         __gnu_cxx::new_allocator<PlayArea::State>::new_allocator(__gnu_cxx::new_allocator<PlayArea::State> const&) [93]
------------------------------------------------
-                0.00    0.00       1/1           std::deque<PlayArea::State, std::allocator<PlayArea::State> >::deque(std::deque<PlayArea::State, std::allocator<PlayArea::State> > const&) [107]
-[94]     0.0    0.00    0.00       1         std::deque<PlayArea::State, std::allocator<PlayArea::State> >::end() const [94]
-                0.00    0.00       1/2           std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>::_Deque_iterator(std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*> const&) [83]
------------------------------------------------
-                0.00    0.00       1/1           std::deque<PlayArea::State, std::allocator<PlayArea::State> >::deque(std::deque<PlayArea::State, std::allocator<PlayArea::State> > const&) [107]
-[95]     0.0    0.00    0.00       1         std::deque<PlayArea::State, std::allocator<PlayArea::State> >::size() const [95]
-                0.00    0.00       1/1           std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>::difference_type std::operator-<PlayArea::State, PlayArea::State&, PlayArea::State*>(std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*> const&, std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*> const&) [114]
------------------------------------------------
-                0.00    0.00       1/1           std::deque<PlayArea::State, std::allocator<PlayArea::State> >::deque(std::deque<PlayArea::State, std::allocator<PlayArea::State> > const&) [107]
-[96]     0.0    0.00    0.00       1         std::deque<PlayArea::State, std::allocator<PlayArea::State> >::begin() const [96]
-                0.00    0.00       1/2           std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>::_Deque_iterator(std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*> const&) [83]
------------------------------------------------
-                0.00    0.00       1/1           std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_Deque_impl::_Deque_impl(std::allocator<PlayArea::State> const&) [99]
-[97]     0.0    0.00    0.00       1         std::allocator<PlayArea::State>::allocator(std::allocator<PlayArea::State> const&) [97]
-                0.00    0.00       1/1           __gnu_cxx::new_allocator<PlayArea::State>::new_allocator(__gnu_cxx::new_allocator<PlayArea::State> const&) [93]
------------------------------------------------
-                0.00    0.00       1/1           std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_Deque_impl::_Deque_impl() [100]
-[98]     0.0    0.00    0.00       1         std::allocator<PlayArea::State>::allocator() [98]
-                0.00    0.00       1/1           __gnu_cxx::new_allocator<PlayArea::State>::new_allocator() [92]
------------------------------------------------
-                0.00    0.00       1/1           std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_Deque_base(std::allocator<PlayArea::State> const&, unsigned long) [101]
-[99]     0.0    0.00    0.00       1         std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_Deque_impl::_Deque_impl(std::allocator<PlayArea::State> const&) [99]
-                0.00    0.00       2/4           std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>::_Deque_iterator() [64]
-                0.00    0.00       1/1           std::allocator<PlayArea::State>::allocator(std::allocator<PlayArea::State> const&) [97]
------------------------------------------------
-                0.00    0.00       1/1           std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_Deque_base() [102]
-[100]    0.0    0.00    0.00       1         std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_Deque_impl::_Deque_impl() [100]
-                0.00    0.00       2/4           std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>::_Deque_iterator() [64]
-                0.00    0.00       1/1           std::allocator<PlayArea::State>::allocator() [98]
------------------------------------------------
-                0.00    0.00       1/1           std::deque<PlayArea::State, std::allocator<PlayArea::State> >::deque(std::deque<PlayArea::State, std::allocator<PlayArea::State> > const&) [107]
-[101]    0.0    0.00    0.00       1         std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_Deque_base(std::allocator<PlayArea::State> const&, unsigned long) [101]
-                0.00    0.00       1/1           std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_Deque_impl::_Deque_impl(std::allocator<PlayArea::State> const&) [99]
-                0.00    0.00       1/2           std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_M_initialize_map(unsigned long) [81]
------------------------------------------------
-                0.00    0.00       1/1           std::deque<PlayArea::State, std::allocator<PlayArea::State> >::deque() [108]
-[102]    0.0    0.00    0.00       1         std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_Deque_base() [102]
-                0.00    0.00       1/1           std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_Deque_impl::_Deque_impl() [100]
-                0.00    0.00       1/2           std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_M_initialize_map(unsigned long) [81]
------------------------------------------------
-                0.00    0.00       1/1           std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*> std::uninitialized_copy<std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>, std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*> >(std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>, std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>, std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>) [111]
-[103]    0.0    0.00    0.00       1         std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*> std::__uninitialized_copy<false>::__uninit_copy<std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>, std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*> >(std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>, std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>, std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>) [103]
-                0.00    0.00       1/6           std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>::_Deque_iterator(std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*> const&) [61]
-                0.00    0.00       1/1           bool std::operator!=<PlayArea::State, PlayArea::State const&, PlayArea::State const*>(std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*> const&, std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*> const&) [115]
------------------------------------------------
-                0.00    0.00       1/1           std::deque<PlayArea::State, std::allocator<PlayArea::State> >::~deque() [109]
-[104]    0.0    0.00    0.00       1         std::deque<PlayArea::State, std::allocator<PlayArea::State> >::_M_destroy_data(std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>, std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>, std::allocator<PlayArea::State> const&) [104]
------------------------------------------------
-                0.00    0.00       1/1           std::deque<PlayArea::State, std::allocator<PlayArea::State> >::~deque() [109]
-[105]    0.0    0.00    0.00       1         std::deque<PlayArea::State, std::allocator<PlayArea::State> >::end() [105]
-                0.00    0.00       1/6           std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>::_Deque_iterator(std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*> const&) [61]
------------------------------------------------
-                0.00    0.00       1/1           std::deque<PlayArea::State, std::allocator<PlayArea::State> >::~deque() [109]
-[106]    0.0    0.00    0.00       1         std::deque<PlayArea::State, std::allocator<PlayArea::State> >::begin() [106]
-                0.00    0.00       1/6           std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>::_Deque_iterator(std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*> const&) [61]
------------------------------------------------
-                0.00    0.00       1/1           std::stack<PlayArea::State, std::deque<PlayArea::State, std::allocator<PlayArea::State> > >::stack(std::deque<PlayArea::State, std::allocator<PlayArea::State> > const&) [110]
-[107]    0.0    0.00    0.00       1         std::deque<PlayArea::State, std::allocator<PlayArea::State> >::deque(std::deque<PlayArea::State, std::allocator<PlayArea::State> > const&) [107]
-                0.00    0.00       1/1           std::deque<PlayArea::State, std::allocator<PlayArea::State> >::size() const [95]
-                0.00    0.00       1/3           std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_M_get_Tp_allocator() const [65]
-                0.00    0.00       1/1           std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_Deque_base(std::allocator<PlayArea::State> const&, unsigned long) [101]
-                0.00    0.00       1/2           std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_M_get_Tp_allocator() [82]
-                0.00    0.00       1/6           std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>::_Deque_iterator(std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*> const&) [61]
-                0.00    0.00       1/1           std::deque<PlayArea::State, std::allocator<PlayArea::State> >::end() const [94]
-                0.00    0.00       1/1           std::deque<PlayArea::State, std::allocator<PlayArea::State> >::begin() const [96]
-                0.00    0.00       1/1           std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*> std::__uninitialized_copy_a<std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>, std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>, PlayArea::State>(std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>, std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>, std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>, std::allocator<PlayArea::State>&) [112]
------------------------------------------------
-                0.00    0.00       1/1           PlayArea::PlayArea(QWidget*) [131]
-[108]    0.0    0.00    0.00       1         std::deque<PlayArea::State, std::allocator<PlayArea::State> >::deque() [108]
-                0.00    0.00       1/1           std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_Deque_base() [102]
------------------------------------------------
-                0.00    0.00       1/1           PlayArea::PlayArea(QWidget*) [131]
-[109]    0.0    0.00    0.00       1         std::deque<PlayArea::State, std::allocator<PlayArea::State> >::~deque() [109]
-                0.00    0.00       1/2           std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_M_get_Tp_allocator() [82]
-                0.00    0.00       1/1           std::deque<PlayArea::State, std::allocator<PlayArea::State> >::end() [105]
-                0.00    0.00       1/1           std::deque<PlayArea::State, std::allocator<PlayArea::State> >::begin() [106]
-                0.00    0.00       1/1           std::deque<PlayArea::State, std::allocator<PlayArea::State> >::_M_destroy_data(std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>, std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>, std::allocator<PlayArea::State> const&) [104]
------------------------------------------------
-                0.00    0.00       1/1           PlayArea::PlayArea(QWidget*) [131]
-[110]    0.0    0.00    0.00       1         std::stack<PlayArea::State, std::deque<PlayArea::State, std::allocator<PlayArea::State> > >::stack(std::deque<PlayArea::State, std::allocator<PlayArea::State> > const&) [110]
-                0.00    0.00       1/1           std::deque<PlayArea::State, std::allocator<PlayArea::State> >::deque(std::deque<PlayArea::State, std::allocator<PlayArea::State> > const&) [107]
------------------------------------------------
-                0.00    0.00       1/1           std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*> std::__uninitialized_copy_a<std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>, std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>, PlayArea::State>(std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>, std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>, std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>, std::allocator<PlayArea::State>&) [112]
-[111]    0.0    0.00    0.00       1         std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*> std::uninitialized_copy<std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>, std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*> >(std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>, std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>, std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>) [111]
-                0.00    0.00       1/6           std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>::_Deque_iterator(std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*> const&) [61]
-                0.00    0.00       1/1           std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*> std::__uninitialized_copy<false>::__uninit_copy<std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>, std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*> >(std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>, std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>, std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>) [103]
------------------------------------------------
-                0.00    0.00       1/1           std::deque<PlayArea::State, std::allocator<PlayArea::State> >::deque(std::deque<PlayArea::State, std::allocator<PlayArea::State> > const&) [107]
-[112]    0.0    0.00    0.00       1         std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*> std::__uninitialized_copy_a<std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>, std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>, PlayArea::State>(std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>, std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>, std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>, std::allocator<PlayArea::State>&) [112]
-                0.00    0.00       1/6           std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>::_Deque_iterator(std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*> const&) [61]
-                0.00    0.00       1/1           std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*> std::uninitialized_copy<std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>, std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*> >(std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>, std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>, std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>) [111]
------------------------------------------------
-                0.00    0.00       1/1           bool std::operator!=<PlayArea::State, PlayArea::State const&, PlayArea::State const*>(std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*> const&, std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*> const&) [115]
-[113]    0.0    0.00    0.00       1         bool std::operator==<PlayArea::State, PlayArea::State const&, PlayArea::State const*>(std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*> const&, std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*> const&) [113]
------------------------------------------------
-                0.00    0.00       1/1           std::deque<PlayArea::State, std::allocator<PlayArea::State> >::size() const [95]
-[114]    0.0    0.00    0.00       1         std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>::difference_type std::operator-<PlayArea::State, PlayArea::State&, PlayArea::State*>(std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*> const&, std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*> const&) [114]
-                0.00    0.00       1/5           std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>::_S_buffer_size() [62]
------------------------------------------------
-                0.00    0.00       1/1           std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*> std::__uninitialized_copy<false>::__uninit_copy<std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>, std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*> >(std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>, std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>, std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>) [103]
-[115]    0.0    0.00    0.00       1         bool std::operator!=<PlayArea::State, PlayArea::State const&, PlayArea::State const*>(std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*> const&, std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*> const&) [115]
-                0.00    0.00       1/1           bool std::operator==<PlayArea::State, PlayArea::State const&, PlayArea::State const*>(std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*> const&, std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*> const&) [113]
+[10]     0.3    0.03    0.00                 alpha_beta(int, int, int, int, long long) [10]
+-----------------------------------------------
+                                                 <spontaneous>
+[11]     0.1    0.01    0.00                 find_in_hash(int, int, int, long long) [11]
+-----------------------------------------------
+[12]     0.0    0.00    0.00    9257+6155    <cycle 1 as a whole> [12]
+                0.00    0.00   14819+25752       _fini <cycle 1> [18]
+                0.00    0.00     593             PlayArea::PlayArea(QWidget*) <cycle 1> [19]
+-----------------------------------------------
+                               25752             _fini <cycle 1> [18]
+                                6124             PlayArea::PlayArea(QWidget*) <cycle 1> [19]
+                0.00    0.00       7/9257        PlayArea::initCurrentPath() [41]
+                0.00    0.00       9/9257        PlayArea::erasePath(int, int) [47]
+                0.00    0.00     131/9257        PlayArea::keyPressEvent(QKeyEvent*) [40]
+                0.00    0.00     297/9257        PlayArea::firstGo(int) [43]
+                0.00    0.00     297/9257        PlayArea::mouseReleaseEvent(QMouseEvent*) [20]
+                0.00    0.00     448/9257        CalThread::qt_static_metacall(QObject*, QMetaObject::Call, int, void**) [52]
+                0.00    0.00     452/9257        PlayArea::drawChess(int, int, int) [46]
+                0.00    0.00     594/9257        PlayArea::isWin(int, int, int) [21]
+                0.00    0.00     998/9257        std::deque<PlayArea::State, std::allocator<PlayArea::State> >::_M_push_back_aux(PlayArea::State const&) [60]
+                0.00    0.00    1028/9257        PlayArea::calculate(int, int, int, int, int) [25]
+                0.00    0.00    1188/9257        PlayArea::addChess(int, int, int) [44]
+                0.00    0.00    3246/9257        PlayArea::backChess() [45]
+[18]     0.0    0.00    0.00   14819+25752   _fini <cycle 1> [18]
+                                  31             PlayArea::PlayArea(QWidget*) <cycle 1> [19]
+                               25752             _fini <cycle 1> [18]
+-----------------------------------------------
+                                  31             _fini <cycle 1> [18]
+                0.00    0.00       1/9257        PlayArea::isWin(int, int, int) [21]
+                0.00    0.00      51/9257        std::deque<PlayArea::State, std::allocator<PlayArea::State> >::_M_push_back_aux(PlayArea::State const&) [60]
+                0.00    0.00      62/9257        PlayArea::keyPressEvent(QKeyEvent*) [40]
+                0.00    0.00     448/9257        CalThread::sendSignal(int, int, int) [49]
+[19]     0.0    0.00    0.00     593         PlayArea::PlayArea(QWidget*) <cycle 1> [19]
+                                6124             _fini <cycle 1> [18]
+-----------------------------------------------
+                0.00    0.00      63/511         PlayArea::keyPressEvent(QKeyEvent*) [40]
+                0.00    0.00     165/511         CalThread::qt_metacall(QMetaObject::Call, int, void**) [50]
+                0.00    0.00     283/511         PlayArea::metaObject() const [57]
+[20]     0.0    0.00    0.00     511         PlayArea::mouseReleaseEvent(QMouseEvent*) [20]
+                0.00    0.00     297/9257        _fini <cycle 1> [18]
+-----------------------------------------------
+                0.00    0.00       1/298         PlayArea::drawCurrentPath(int, int) [26]
+                0.00    0.00     125/298         PlayArea::keyPressEvent(QKeyEvent*) [40]
+                0.00    0.00     172/298         CalThread::qt_static_metacall(QObject*, QMetaObject::Call, int, void**) [52]
+[21]     0.0    0.00    0.00     298         PlayArea::isWin(int, int, int) [21]
+                0.00    0.00     594/9257        _fini <cycle 1> [18]
+                0.00    0.00       1/9257        PlayArea::PlayArea(QWidget*) <cycle 1> [19]
+-----------------------------------------------
+                0.00    0.00      63/252         PlayArea::qt_metacast(char const*) [23]
+                0.00    0.00     189/252         PlayArea::qt_metacall(QMetaObject::Call, int, void**) [38]
+[22]     0.0    0.00    0.00     252         __libc_csu_init [22]
+-----------------------------------------------
+                0.00    0.00      63/63          PlayArea::keyPressEvent(QKeyEvent*) [40]
+[23]     0.0    0.00    0.00      63         PlayArea::qt_metacast(char const*) [23]
+                0.00    0.00      63/252         __libc_csu_init [22]
+-----------------------------------------------
+                0.00    0.00      51/51          CalThread::metaObject() const [58]
+[24]     0.0    0.00    0.00      51         std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_M_initialize_map(unsigned long) [24]
+-----------------------------------------------
+                0.00    0.00      31/31          std::deque<PlayArea::State, std::allocator<PlayArea::State> >::_M_push_back_aux(PlayArea::State const&) [60]
+[25]     0.0    0.00    0.00      31         PlayArea::calculate(int, int, int, int, int) [25]
+                0.00    0.00    1028/9257        _fini <cycle 1> [18]
+-----------------------------------------------
+                0.00    0.00       1/1           PlayArea::initCurrentPath() [41]
+[26]     0.0    0.00    0.00       1         PlayArea::drawCurrentPath(int, int) [26]
+                0.00    0.00       1/298         PlayArea::isWin(int, int, int) [21]
 -----------------------------------------------
 
  This table describes the call tree of the program, and was sorted by
@@ -716,39 +249,10 @@ notice and this notice are preserved.
 
 Index by function name
 
-   [3] computerGo(int (*) [20], int, int&, int&) [38] PlayArea::drawChess(int, int, int) [97] std::allocator<PlayArea::State>::allocator(std::allocator<PlayArea::State> const&)
-   [2] get_points(Coor*, int*) [51] PlayArea::erasePath(int, int) [98] std::allocator<PlayArea::State>::allocator()
-   [8] find_in_hash(int, int, int, long long) [40] QPainter::drawPixmap(QRect const&, QPixmap const&, QRect const&) [76] std::allocator<PlayArea::State*>::allocator<PlayArea::State>(std::allocator<PlayArea::State> const&)
-   [4] change_cpoint(int, int) [39] QPainter::drawEllipse(QPoint const&, int, int) [77] std::allocator<PlayArea::State*>::~allocator()
-   [7] cal_all_points(Coor*, int*) [20] QPainter::drawLine(int, int, int, int) [99] std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_Deque_impl::_Deque_impl(std::allocator<PlayArea::State> const&)
-  [10] compare(void const*, void const*) [52] QPainter::drawRect(QRect const&) [100] std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_Deque_impl::_Deque_impl()
-   [1] cal_chess(Points*, Coor*, int, int) [90] QPalette::setBrush(QPalette::ColorRole, QBrush const&) [78] std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_M_allocate_map(unsigned long)
-   [9] cal_point(int, int)    [91] CalThread::CalThread() [79] std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_M_create_nodes(PlayArea::State**, PlayArea::State**)
-   [5] init_time()            [69] __gnu_cxx::new_allocator<PlayArea::State>::allocate(unsigned long, void const*) [80] std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_M_allocate_node()
-   [6] set_order(Subpoints*)  [46] __gnu_cxx::new_allocator<PlayArea::State>::construct(PlayArea::State*, PlayArea::State const&) [81] std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_M_initialize_map(unsigned long)
-  [85] QMessageBox::information(QWidget*, QString const&, QString const&, QMessageBox::StandardButton, QMessageBox::StandardButton) [92] __gnu_cxx::new_allocator<PlayArea::State>::new_allocator() [82] std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_M_get_Tp_allocator()
-  [54] QPainterPath::lineTo(double, double) [93] __gnu_cxx::new_allocator<PlayArea::State>::new_allocator(__gnu_cxx::new_allocator<PlayArea::State> const&) [101] std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_Deque_base(std::allocator<PlayArea::State> const&, unsigned long)
-  [55] QPainterPath::moveTo(double, double) [70] __gnu_cxx::new_allocator<PlayArea::State*>::allocate(unsigned long, void const*) [102] std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_Deque_base()
-  [66] QBasicAtomicInt::deref() [71] __gnu_cxx::new_allocator<PlayArea::State*>::new_allocator() [83] std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>::_Deque_iterator(std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*> const&)
-  [19] QLine::QLine(int, int, int, int) [72] __gnu_cxx::new_allocator<PlayArea::State*>::~new_allocator() [63] std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>::_M_set_node(PlayArea::State**)
-  [29] QRect::QRect(QPoint const&, QSize const&) [58] QMouseEvent::x() const [62] std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>::_S_buffer_size()
-  [25] QRect::QRect(QPoint const&, QPoint const&) [59] QMouseEvent::y() const [61] std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>::_Deque_iterator(std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*> const&)
-  [32] QRect::QRect(int, int, int, int) [60] QMouseEvent::button() const [64] std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>::_Deque_iterator()
-  [28] QSize::QSize(int, int) [41] QPaintEvent::rect() const [103] std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*> std::__uninitialized_copy<false>::__uninit_copy<std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>, std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*> >(std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>, std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>, std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>)
-  [24] QColor::QColor(int, int, int, int) [34] QRect::x() const [104] std::deque<PlayArea::State, std::allocator<PlayArea::State> >::_M_destroy_data(std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>, std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>, std::allocator<PlayArea::State> const&)
-  [86] QFlags<QMessageBox::StandardButton>::QFlags(QMessageBox::StandardButton) [35] QRect::y() const [105] std::deque<PlayArea::State, std::allocator<PlayArea::State> >::end()
-  [87] QFlags<Qt::WindowType>::QFlags(void**) [36] QRect::width() const [106] std::deque<PlayArea::State, std::allocator<PlayArea::State> >::begin()
-  [18] QPoint::QPoint(int, int) [37] QRect::height() const [47] std::deque<PlayArea::State, std::allocator<PlayArea::State> >::push_back(PlayArea::State const&)
-  [33] QRectF::QRectF(QRect const&) [26] QRect::adjusted(int, int, int, int) const [107] std::deque<PlayArea::State, std::allocator<PlayArea::State> >::deque(std::deque<PlayArea::State, std::allocator<PlayArea::State> > const&)
-  [50] QPointF::QPointF(double, double) [30] QSize::width() const [108] std::deque<PlayArea::State, std::allocator<PlayArea::State> >::deque()
-  [67] QString::QString(char const*) [31] QSize::height() const [109] std::deque<PlayArea::State, std::allocator<PlayArea::State> >::~deque()
-  [68] QString::~QString()    [23] QEvent::type() const   [48] std::stack<PlayArea::State, std::deque<PlayArea::State, std::allocator<PlayArea::State> > >::push(PlayArea::State const&)
-  [56] PlayArea::outChessMap(int (*) [20]) [21] QPoint::x() const [110] std::stack<PlayArea::State, std::deque<PlayArea::State, std::allocator<PlayArea::State> > >::stack(std::deque<PlayArea::State, std::allocator<PlayArea::State> > const&)
-  [57] PlayArea::computerTurn() [22] QPoint::y() const    [53] std::__deque_buf_size(unsigned long)
-  [42] PlayArea::drawCurrentPath(int, int) [73] __gnu_cxx::new_allocator<PlayArea::State>::max_size() const [111] std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*> std::uninitialized_copy<std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>, std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*> >(std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>, std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>, std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>)
-  [88] PlayArea::initCurrentPath() [74] __gnu_cxx::new_allocator<PlayArea::State*>::max_size() const [112] std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*> std::__uninitialized_copy_a<std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>, std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>, PlayArea::State>(std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>, std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*>, std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>, std::allocator<PlayArea::State>&)
-  [43] PlayArea::State::State(int, int, int) [65] std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_M_get_Tp_allocator() const [84] unsigned long const& std::max<unsigned long>(unsigned long const&, unsigned long const&)
-  [44] PlayArea::isWin(int, int, int) [75] std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_M_get_map_allocator() const [113] bool std::operator==<PlayArea::State, PlayArea::State const&, PlayArea::State const*>(std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*> const&, std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*> const&)
-  [89] PlayArea::firstGo(int) [94] std::deque<PlayArea::State, std::allocator<PlayArea::State> >::end() const [114] std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*>::difference_type std::operator-<PlayArea::State, PlayArea::State&, PlayArea::State*>(std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*> const&, std::_Deque_iterator<PlayArea::State, PlayArea::State&, PlayArea::State*> const&)
-  [45] PlayArea::addChess(int, int, int) [95] std::deque<PlayArea::State, std::allocator<PlayArea::State> >::size() const [115] bool std::operator!=<PlayArea::State, PlayArea::State const&, PlayArea::State const*>(std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*> const&, std::_Deque_iterator<PlayArea::State, PlayArea::State const&, PlayArea::State const*> const&)
-  [27] PlayArea::calculate(int, int, int, int, int) [96] std::deque<PlayArea::State, std::allocator<PlayArea::State> >::begin() const [49] operator new(unsigned long, void*)
+  [10] alpha_beta(int, int, int, int, long long) [1] cal_chess(Points*, Coor*, int, int) [25] PlayArea::calculate(int, int, int, int, int)
+   [2] get_points(Coor*, int*) [6] cal_point(int, int)    [19] PlayArea::PlayArea(QWidget*)
+   [7] cal_zobrist()           [9] set_order(Subpoints*)   [3] PlayArea::~PlayArea()
+  [11] find_in_hash(int, int, int, long long) [23] PlayArea::qt_metacast(char const*) [24] std::_Deque_base<PlayArea::State, std::allocator<PlayArea::State> >::_M_initialize_map(unsigned long)
+   [4] change_cpoint(int, int) [26] PlayArea::drawCurrentPath(int, int) [22] __libc_csu_init
+   [5] cal_all_points(Coor*, int*) [20] PlayArea::mouseReleaseEvent(QMouseEvent*) [18] _fini
+   [8] init_hashtable()       [21] PlayArea::isWin(int, int, int) [12] <cycle 1>
