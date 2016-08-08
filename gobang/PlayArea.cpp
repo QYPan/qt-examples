@@ -5,12 +5,17 @@
 
 PlayArea::
 PlayArea(QWidget *parent)
-	: QWidget(parent), player(0), winner(-1), pathx(-1), pathy(-1)
+	: QWidget(parent)
 {
+	player = 0;
+	winner = -1;
+	pathx = -1;
+	pathy = -1;
 	QSize size(640, 640);
 	setFixedSize(size);
+	setFocusPolicy(Qt::StrongFocus);
 	EDGESIZE = qMin(width(), height());
-	SUBE = EDGESIZE / 16;
+	SUBE = EDGESIZE / (MAPSIZE + 1);
 	RADIUS = 2 * SUBE / 5;
 
 	memset(chessMap, -1, sizeof(chessMap));
@@ -25,10 +30,10 @@ PlayArea(QWidget *parent)
 	pixmap.fill(QColor(170, 85, 0));
 	QPainter painter(&pixmap);
 	painter.setPen(QPen(QBrush(QColor(0, 0, 0)), 2));
-	for(int i = 0; i < 15; i++){
-		for(int j = 0; j < 15; j++){
-			painter.drawLine(SUBE, SUBE+i*SUBE, SUBE*15, SUBE+i*SUBE);
-			painter.drawLine(SUBE+i*SUBE, SUBE, SUBE+i*SUBE, SUBE*15);
+	for(int i = 0; i < MAPSIZE; i++){
+		for(int j = 0; j < MAPSIZE; j++){
+			painter.drawLine(SUBE, SUBE+i*SUBE, SUBE*MAPSIZE, SUBE+i*SUBE);
+			painter.drawLine(SUBE+i*SUBE, SUBE, SUBE+i*SUBE, SUBE*MAPSIZE);
 		}
 	}
 	setAutoFillBackground(true);
@@ -39,8 +44,13 @@ PlayArea(QWidget *parent)
 	thread = new CalThread();
 	connect(thread, SIGNAL(sendSignal(int, int, int)), this, SLOT(addChess(int, int, int)));
 
-	firstGo(1);
+	firstGo(0);
 	installEventFilter(this);
+}
+
+void PlayArea::
+setFirstMan(int _player){
+	player = _player;
 }
 
 void PlayArea::

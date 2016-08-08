@@ -1,9 +1,9 @@
 #include <QtGui>
-#include "PlayArea.h"
+#include "ActionArea.h"
 
 int main(int argc, char *argv[]){
 	QApplication app(argc, argv);
-	PlayArea playArea;
-	playArea.show();
+	ActionArea actionarea;
+	actionarea.show();
 	return app.exec();
 }

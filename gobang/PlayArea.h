@@ -10,6 +10,7 @@
 class PlayArea : public QWidget{
 	Q_OBJECT
 public:
+	enum Player {Computer = 0, Human = 1};
 	struct State{
 		int x, y, player;
 		State(){x = 0, y = 0, player = 0;}
@@ -20,12 +21,14 @@ public:
 		}
 	};
 	PlayArea(QWidget *parent = 0);
+	void firstGo(int player = 0);
+	void setFirstMan(int player);
+	CalThread *thread;
 public slots:
 	bool addChess(int x, int y, int player);
 protected:
 	void computerTurn();
 	void outChessMap(int m[][MAPSIZE+5]);
-	void firstGo(int player = 0);
 	void initCurrentPath();
 	void backChess();
 	void drawChess(int x, int y, int player);
@@ -45,7 +48,6 @@ private:
 	QPixmap *chessPixmap;
 	QPainter chessPainter;
 	QPainterPath curpath;
-	CalThread *thread;
 	int player;
 	int winner;
 	int pathx;
@@ -53,6 +55,9 @@ private:
 	int RADIUS; // the radius of the chess
 	int SUBE; // the size of each block
 	int EDGESIZE; // the size of the chess map
+	int states;
+	double timeUse;
+	double pertime;
 };
 
 #endif

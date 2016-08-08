@@ -2,8 +2,11 @@
 
 void CalThread::
 run(){
-	computerGo(arr, player, x, y);
+	int num;
+	double t, p;
+	computerGo(arr, player, x, y, num, t, p);
 	emit sendSignal(x, y, player);
+	emit sendCalEnd(num, t, p);
 }
 
 void CalThread::

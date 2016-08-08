@@ -22,21 +22,23 @@ static const uint qt_meta_data_CalThread[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       1,   14, // methods
+       2,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       1,       // signalCount
+       2,       // signalCount
 
  // signals: signature, parameters, type, tag, flags
       22,   11,   10,   10, 0x05,
+      54,   46,   10,   10, 0x05,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_CalThread[] = {
     "CalThread\0\0x,y,player\0sendSignal(int,int,int)\0"
+    "num,t,p\0sendCalEnd(int,double,double)\0"
 };
 
 void CalThread::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -46,6 +48,7 @@ void CalThread::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         CalThread *_t = static_cast<CalThread *>(_o);
         switch (_id) {
         case 0: _t->sendSignal((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2])),(*reinterpret_cast< int(*)>(_a[3]))); break;
+        case 1: _t->sendCalEnd((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< double(*)>(_a[2])),(*reinterpret_cast< double(*)>(_a[3]))); break;
         default: ;
         }
     }
@@ -83,9 +86,9 @@ int CalThread::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 1)
+        if (_id < 2)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 1;
+        _id -= 2;
     }
     return _id;
 }
@@ -95,5 +98,12 @@ void CalThread::sendSignal(int _t1, int _t2, int _t3)
 {
     void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)), const_cast<void*>(reinterpret_cast<const void*>(&_t2)), const_cast<void*>(reinterpret_cast<const void*>(&_t3)) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
+}
+
+// SIGNAL 1
+void CalThread::sendCalEnd(int _t1, double _t2, double _t3)
+{
+    void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)), const_cast<void*>(reinterpret_cast<const void*>(&_t2)), const_cast<void*>(reinterpret_cast<const void*>(&_t3)) };
+    QMetaObject::activate(this, &staticMetaObject, 1, _a);
 }
 QT_END_MOC_NAMESPACE

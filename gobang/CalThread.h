@@ -8,6 +8,7 @@ public:
 	void setP(int _player, int _arr[][MAPSIZE+5]);
 signals:
 	void sendSignal(int x, int y, int player);
+	void sendCalEnd(int num, double t, double p);
 protected:
 	void run();
 private:

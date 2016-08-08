@@ -1,7 +1,7 @@
 #ifndef FUN_H
 #define FUN_H
 
-#define HASHSIZE (1<<21)
+#define HASHSIZE (1<<21) // must be 2^nn
 #ifndef MAPSIZE
 #define MAPSIZE 15
 #endif
@@ -36,6 +36,6 @@ typedef struct{
 	int kill[2]; /* 该点情形，3 为成五，2 为绝杀，1 为双活三 */
 }Subpoints;
 
-extern int computerGo(int m[][MAPSIZE+5], int player, int &return_x, int &return_y);
+extern int computerGo(int m[][MAPSIZE+5], int player, int &return_x, int &return_y, int &num, double &t, double &p);
 
 #endif

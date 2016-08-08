@@ -368,7 +368,7 @@ int alpha_beta(int player, int depth, int alpha, int beta, LL st)
 	}
 	
 	Subpoints sp[250];
-	LL tst;
+	LL tst = st;
 	int n = set_order(sp); /* 对候选点按高分到低分排序 */
 	int y, x;
 
@@ -386,13 +386,13 @@ int alpha_beta(int player, int depth, int alpha, int beta, LL st)
 	}
 #endif
 
-	for(i = 0; i < 15 && i < n; i++){ /* 最多选择 20 个候选点 */
+	for(i = 0; i < 25 && i < n; i++){ /* 最多选择 n 个候选点 */
 		tst = st;
 		y = sp[i].y;
 		x = sp[i].x;
 		state[y][x] = player; /* 在 (y, x) 落子 */
 		st ^= zobrist[player][y][x];
-		change_cpoint(y, x); /* (y, x) 四个方向上的得分受到影响，需要改变  */
+		change_cpoint(y, x); /* (y, x) 四个方向上的得分受到影响，需要改变 */
 		val = -alpha_beta(player^1, depth-1, -beta, -alpha, st);
 		state[y][x] = -1;
 		st ^= zobrist[player][y][x];
@@ -499,7 +499,7 @@ int test(int player)
 }
 #endif
 
-int computerGo(int m[][MAPSIZE+5], int player, int &return_x, int &return_y)
+int computerGo(int m[][MAPSIZE+5], int player, int &return_x, int &return_y, int &num, double &t, double &p)
 {
 	LL st;
 	int alpha = -inf;
@@ -518,10 +518,20 @@ int computerGo(int m[][MAPSIZE+5], int player, int &return_x, int &return_y)
 	init_hashtable();
 	st = cal_zobrist();
 
+	clock_t beg_t;
+	clock_t end_t;
+	double use_t;
+	beg_t = clock();
 	alpha_beta(player, DEPTH, alpha, beta, st); /* 搜索 */
+	end_t = clock();
+
+	use_t = (double)(end_t - beg_t) / CLOCKS_PER_SEC;
 
 	return_x = comx;
 	return_y = comy;
+	num = counter;
+	t = use_t;
+	p = counter / t;
 
 	return 1;
 }
