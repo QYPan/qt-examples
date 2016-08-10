@@ -13,6 +13,7 @@ SnakeWindow(){
 	whoPlay = new QComboBox;
 	whoPlay->addItem(tr("Computer"), SnakeBoard::Computer);
 	whoPlay->addItem(tr("Human"), SnakeBoard::Human);
+	whoPlay->setCurrentIndex(whoPlay->findText("Computer"));
 	whoPlay->setFocusPolicy(Qt::NoFocus);
 
 	startButton = new QPushButton(tr("&Start"));
@@ -46,7 +47,7 @@ SnakeWindow(){
 	setLayout(layout);
 
 	setWindowTitle(tr("Snake"));
-	resize(550, 300);
+	resize(450, 200);
 }
 
 void SnakeWindow::

@@ -9,9 +9,9 @@ SnakeBoard(QWidget *parent)
 	setFrameStyle(QFrame::Panel | QFrame::Sunken);
 	setFocusPolicy(Qt::StrongFocus);
 	clearBoard();
+	player = Computer;
 	isStarted = false;
 	isPaused = false;
-	filledcount = 0;
 }
 
 QSize SnakeBoard::
@@ -26,14 +26,18 @@ start(){
 		return;
 	isStarted = true;
 	score = 0;
-	level = 1;
+	filledcount = 0;
+	if(player == Computer)
+		level = 10;
+	else
+		level = 1;
 
 	initTimeSeed();
 	clearBoard();
 	snakeList.clear();
 
-	keyDire.setY(-1);
-	keyDire.setX(0);
+	keyDire.y = -1;
+	keyDire.x = 0;
 
 	addBody(BoardHeight/2, BoardWidth/2);
 	addFood();
@@ -68,7 +72,7 @@ paintEvent(QPaintEvent *event){
 		for(int j = 0; j < BoardWidth; j++){
 			SquareState state = stateAt(i, j);
 			if(state != None){
-				drawSquare(painter, rect.left()+j*squareWidth(),
+				drawSquare(painter, i, j, rect.left()+j*squareWidth(),
 						rect.top()+i*squareHeight(), state);
 			}
 		}
@@ -89,20 +93,20 @@ keyPressEvent(QKeyEvent *event){
 	}
 	switch(key){
 	case Qt::Key_Up:
-		keyDire.setY(-1);
-		keyDire.setX(0);
+		keyDire.y = -1;
+		keyDire.x = 0;
 		break;
 	case Qt::Key_Down:
-		keyDire.setY(1);
-		keyDire.setX(0);
+		keyDire.y = 1;
+		keyDire.x = 0;
 		break;
 	case Qt::Key_Left:
-		keyDire.setY(0);
-		keyDire.setX(-1);
+		keyDire.y = 0;
+		keyDire.x = -1;
 		break;
 	case Qt::Key_Right:
-		keyDire.setY(0);
-		keyDire.setX(1);
+		keyDire.y = 0;
+		keyDire.x = 1;
 		break;
 	default:
 		QFrame::keyPressEvent(event);
@@ -112,11 +116,16 @@ keyPressEvent(QKeyEvent *event){
 void SnakeBoard::
 timerEvent(QTimerEvent *event){
 	if(event->timerId() == timer.timerId()){
-		if(snakeList.size() <= 1 || (!(keyDire.y()+dire.y() == 0 && keyDire.x()+dire.x() == 0))){
-			dire.setY(keyDire.y());
-			dire.setX(keyDire.x());
+		if(player == Human){
+			if(snakeList.size() <= 1 || (!(keyDire.y+dire.y == 0 && keyDire.x+dire.x == 0))){
+				dire.y = keyDire.y;
+				dire.x = keyDire.x;
+			}
 		}
-		if(!tryMove(dire.y(), dire.x())){
+		else{
+			computerGo(dire);
+		}
+		if(!tryMove(dire.y, dire.x)){
 			timer.stop();
 			isStarted = false;
 			QMessageBox::information(this, "Notice", "Game over!", QMessageBox::Ok);
@@ -129,46 +138,63 @@ timerEvent(QTimerEvent *event){
 
 bool SnakeBoard::
 tryMove(int d1, int d2){
-	int y = snakeList.front().y() + d1;
-	int x = snakeList.front().x() + d2;
-	if(stateAt(y, x) != None && stateAt(y, x) != Food)
-		return false;
+	int y = snakeList.front().y + d1;
+	int x = snakeList.front().x + d2;
 	if(stateAt(y, x) == Food){
 		addBody(y, x);
+		filledcount++;
 		emit scoreChanged(++score);
-		if(score % 10 == 0){
-			++level;
-			timer.start(timeoutTime(), this);
-			emit levelChanged(level);
+		if(player == Human){
+			if(score % 10 == 0){
+				++level;
+				timer.start(timeoutTime(), this);
+				emit levelChanged(level);
+			}
 		}
+		if(filledcount + 1 == (BoardHeight-2) * (BoardWidth-2)) // had fill the board !
+			return false;
 		addFood();
 	}
 	else{
-		moveSnake(y, x);
+		if(!moveSnake(y, x))
+			return false;
 	}
-	dire.setX(d2);
-	dire.setY(d1);
+	dire.x = d2;
+	dire.y = d1;
 	return true;
 }
 
-void SnakeBoard::
+bool SnakeBoard::
 moveSnake(int y, int x){
-	int heady = snakeList.front().y();
-	int headx = snakeList.front().x();
-	int taily = snakeList.back().y();
-	int tailx = snakeList.back().x();
-	stateAt(heady, headx) = SnakeBody;
-	stateAt(taily, tailx) = None;
+	SPoint head = snakeList.front();
+	SPoint tail = snakeList.back();
+
+	if(stateAt(y, x) != None){
+		if(!(tail.y == y && tail.x == x)) // check if the new head is the body or tail
+			return false;
+	}
+
+	stateAt(head.y, head.x) = SnakeBody;
+	dboard[head.y][head.x].y = y - head.y;
+	dboard[head.y][head.x].x = x - head.x;
+
+	stateAt(tail.y, tail.x) = None;
+	dboard[tail.y][tail.x].y = 0;
+	dboard[tail.y][tail.x].x = 0;
+
 	stateAt(y, x) = SnakeHead;
 	snakeList.pop_back();
 	snakeList.push_front(SPoint(x, y));
 	update();
+	return true;
 }
 
 void SnakeBoard::
 clearBoard(){
 	for(int i = 0; i < BoardHeight; i++){
 		for(int j = 0; j < BoardWidth; j++){
+			dboard[i][j].x = 0;
+			dboard[i][j].y = 0;
 			if(!i || !j || i == BoardHeight-1 || j == BoardWidth-1)
 				board[i][j] = Wall;
 			else
@@ -180,9 +206,11 @@ clearBoard(){
 void SnakeBoard::
 addBody(int y, int x){
 	if(snakeList.size()){
-		int tmpx = snakeList.front().x();
-		int tmpy = snakeList.front().y();
+		int tmpx = snakeList.front().x;
+		int tmpy = snakeList.front().y;
 		stateAt(tmpy, tmpx) = SnakeBody;
+		dboard[tmpy][tmpx].y = y - tmpy;
+		dboard[tmpy][tmpx].x = x - tmpx;
 	}
 	stateAt(y, x) = SnakeHead;
 	snakeList.push_front(SPoint(x, y));
@@ -200,8 +228,6 @@ initTimeSeed(){
 
 void SnakeBoard::
 addFood(){
-	if(filledcount >= BoardWidth*BoardHeight)
-		return;
 	int x, y;
 	while(true){
 		x = rand() % BoardWidth;
@@ -210,26 +236,43 @@ addFood(){
 			break;
 	}
 	stateAt(y, x) = Food;
-	food.setX(x);
-	food.setY(y);
+	food.x = x;
+	food.y = y;
 	update();
 }
 
 void SnakeBoard::
-drawSquare(QPainter &painter, int x, int y, SquareState state){
+drawSquare(QPainter &painter, int r, int c, int x, int y, SquareState state){
 	static const QRgb colorTable[5] = {
 		0x000000, 0xEF7878, 0xAB7832, 0xCC7839, 0xDD1234
 	};
 	QColor color = colorTable[int(state)];
-	painter.fillRect(x+1, y+1, squareWidth()-2, squareHeight()-2, color);
+	int d = 2;
+	if(state == Wall){
+		painter.fillRect(x+1, y+1, squareWidth()-2, squareHeight()-2, color);
+		painter.setPen(color.light());
+		painter.drawLine(x, y+squareHeight()-1, x, y);
+		painter.drawLine(x, y, x+squareWidth()-1, y);
 
-	painter.setPen(color.light());
-	painter.drawLine(x, y+squareHeight()-1, x, y);
-	painter.drawLine(x, y, x+squareWidth()-1, y);
-
-	painter.setPen(color.dark());
-	painter.drawLine(x+1, y+squareHeight()-1,
-			x+squareWidth()-1, y+squareHeight()-1);
-	painter.drawLine(x+squareWidth()-1,y+squareHeight()-1,
-			x+squareWidth()-1, y+1);
+		painter.setPen(color.dark());
+		painter.drawLine(x+1, y+squareHeight()-1,
+				x+squareWidth()-1, y+squareHeight()-1);
+		painter.drawLine(x+squareWidth()-1,y+squareHeight()-1,
+				x+squareWidth()-1, y+1);
+	}
+	else{
+		painter.fillRect(x+d, y+d, squareWidth()-2*d, squareHeight()-2*d, color);
+		int d1 = dboard[r][c].y;
+		int d2 = dboard[r][c].x;
+		if(!(d1 && d2)){
+			if(d1 == -1 && d2 == 0)
+				painter.fillRect(x+d, y-d, squareWidth()-2*d, 2*d, color);
+			else if(d1 == 1 && d2 == 0)
+				painter.fillRect(x+d, y+d+(squareHeight()-2*d), squareWidth()-2*d, 2*d, color);
+			else if(d1 == 0 && d2 == -1)
+				painter.fillRect(x-d, y+d, 2*d, squareHeight()-2*d, color);
+			else if(d1 == 0 && d2 == 1)
+				painter.fillRect(x+d+(squareWidth()-2*d), y+d, 2*d, squareHeight()-2*d, color);
+		}
+	}
 }
