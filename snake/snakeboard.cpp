@@ -35,6 +35,7 @@ start(){
 
 	initTimeSeed();
 	clearBoard();
+	//getRandWall();
 	snakeList.clear();
 
 	keyDire.y = -1;
@@ -115,6 +116,66 @@ keyPressEvent(QKeyEvent *event){
 }
 
 void SnakeBoard::
+stupidGo(SPoint &point){
+	static bool Up = true;
+	static bool Down = false;
+	static bool Left = false;
+	static bool Right = false;
+	if(Up){
+		SPoint head = snakeList.front();
+		if(board[head.y-1][head.x] != Wall){
+			point.y = -1;
+			point.x = 0;
+		}
+		else{
+			point.y = 0;
+			point.x = 1;
+			Right = true;
+			Up = false;
+		}
+	}
+	else if(Right){
+		if(Down){
+			point.y = -1;
+			point.x = 0;
+			Up = true;
+			Down = false;
+		}
+		else{
+			point.y = 1;
+			point.x = 0;
+			Down = true;
+		}
+		Right = false;
+	}
+	else if(Down){
+		SPoint head = snakeList.front();
+		if(board[head.y+2][head.x] == Wall){
+			if(board[head.y][head.x+2] != Wall){
+				point.y = 0;
+				point.x = 1;
+				Right = true;
+			}
+		}
+		else if(board[head.y+1][head.x] == Wall){
+			point.y = 0;
+			point.x = -1;
+			Left = true;
+			Down = false;
+		}
+	}
+	else if(Left){
+		SPoint head = snakeList.front();
+		if(board[head.y][head.x-1] == Wall){
+			point.y = -1;
+			point.x = 0;
+			Up = true;
+			Left = false;
+		}
+	}
+}
+
+void SnakeBoard::
 timerEvent(QTimerEvent *event){
 	if(event->timerId() == timer.timerId()){
 		if(player == Human){
@@ -125,11 +186,12 @@ timerEvent(QTimerEvent *event){
 		}
 		else{
 			computerGo(dire);
+			//stupidGo(dire);
 		}
 		if(!tryMove(dire.y, dire.x)){
 			timer.stop();
 			isStarted = false;
-			QMessageBox::information(this, "Notice", "Game over!", QMessageBox::Ok);
+			//QMessageBox::information(this, "Notice", "Game over!", QMessageBox::Ok);
 		}
 	}
 	else{
@@ -163,6 +225,16 @@ tryMove(int d1, int d2){
 	dire.x = d2;
 	dire.y = d1;
 	return true;
+}
+
+void SnakeBoard::
+getRandWall(){
+	for(int i = 0; i < 10; i++){
+		int y = rand() % (BoardHeight-4) + 2;
+		int x = rand() % (BoardWidth-4) + 2;
+		stateAt(y, x) = Wall;
+	}
+	boardSize -= 10;
 }
 
 bool SnakeBoard::

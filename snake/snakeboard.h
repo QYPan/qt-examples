@@ -42,7 +42,9 @@ private:
 	bool tryMove(int d1, int d2);
 	bool moveSnake(int y, int x);
 	void computerGo(SPoint &point);
+	void stupidGo(SPoint &point);
 	void drawSquare(QPainter &painter, int r, int c, int x, int y, SquareState state);
+	void getRandWall();
 	void initTimeSeed();
 	void clearBoard();
 	void addBody(int y, int x);
