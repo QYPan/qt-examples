@@ -47,7 +47,7 @@ SnakeWindow(){
 	setLayout(layout);
 
 	setWindowTitle(tr("Snake"));
-	resize(450, 200);
+	resize(450, 350);
 }
 
 void SnakeWindow::

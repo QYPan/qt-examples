@@ -8,7 +8,7 @@
 class QLabel;
 
 enum SquareState {None, Food, SnakeHead, SnakeBody, Wall};
-enum {BoardWidth = 10, BoardHeight = 7};
+enum {BoardWidth = 12, BoardHeight = 12};
 
 struct SPoint{
 	SPoint(){}
@@ -55,6 +55,7 @@ private:
 	Player player;
 	bool isStarted;
 	bool isPaused;
+	int boardSize;
 	int filledcount; 
 	int score;
 	int level;

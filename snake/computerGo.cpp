@@ -73,41 +73,55 @@ bool A_star(const SPoint &beg, const SPoint &end, SPoint &ans){
 
 void changeTboard(int y, int x, bool isEnd){
 	SPoint head = tsnakeList.front();
+	SPoint tail = tsnakeList.back();
 	tboard[head.y][head.x] = SnakeBody;
 	tboard[y][x] = SnakeHead;
 	tsnakeList.push_front(SPoint(x, y)); // notic the order of x and y !!!!!!!!!!!!
 	if(!isEnd){ // if snake had eat the food, no need to cut the tail
-		SPoint tail = tsnakeList.back();
 		tsnakeList.pop_back();
 		tboard[tail.y][tail.x] = None;
 	}
 }
 
-void Nothing(const SPoint &end, SPoint &point){
-	SPoint head = tsnakeList.front();
-	SPoint tail = tsnakeList.back();
-	tboard[head.y][head.x] = SnakeBody;
-	tboard[tail.y][tail.x] = None;
-	tsnakeList.pop_back();
-	tail = tsnakeList.back();
+bool Nothing(SPoint &point){
 	int Dist = 0;
+	bool flag = false;
 	for(int i = 0; i < 4; i++){
 		SPoint beg;
+		SPoint head = tsnakeList.front();
+		SPoint tail = tsnakeList.back();
 		beg.y = head.y + goy[i];
 		beg.x = head.x + gox[i];
-		if(tboard[beg.y][beg.x] == None){
-			tboard[beg.y][beg.x] = SnakeHead;
+		SquareState newHead = tboard[beg.y][beg.x];
+		if(newHead == None || newHead == Food || (tsnakeList.size() > 2 && beg.y == tail.y && beg.x == tail.x)){
+			changeTboard(beg.y, beg.x, newHead==Food);
 			SPoint ans;
-			if(A_star(beg, tail, ans)){
-				int dist = getH(beg.x, beg.y, end.x, end.y);
+			SPoint stail = tsnakeList.back();
+			if(A_star(beg, stail, ans)){
+				if(newHead == Food){
+					point.y = goy[i];
+					point.x = gox[i];
+					flag = true;
+					return true;
+				}
+				int dist = getH(beg.x, beg.y, stail.x, stail.y);
 				if(dist > Dist){
 					Dist = dist;
 					point.y = goy[i];
 					point.x = gox[i];
+					flag = true;
 				}
+			}
+			tboard[beg.y][beg.x] = None;
+			tboard[head.y][head.x] = SnakeHead;
+			tsnakeList.pop_front();
+			if(newHead != Food){
+				tboard[tail.y][tail.x] = SnakeBody;
+				tsnakeList.push_back(tail);
 			}
 		}
 	}
+	return flag;
 }
 
 // check if snake can eat food
@@ -158,7 +172,9 @@ computerGo(SPoint &point){
 			canTouchTail = A_star(shead, stail, tpoint); // check if snake can touch it's tail
 		}
 	}
-	if((canEatFood && filledcount + 2 == (BoardHeight-2) * (BoardWidth-2)) || (canEatFood && canTouchTail)){
+	//if((canEatFood && filledcount + 2 == boardSize) ||
+	if((filledcount < boardSize / 2) && ((canEatFood && filledcount + 2 == boardSize) ||
+				(canEatFood && canTouchTail))){
 		point.y = nextStep.y;
 		point.x = nextStep.x;
 	}
@@ -170,7 +186,7 @@ computerGo(SPoint &point){
 		}
 		tsnakeList.clear();
 		tsnakeList = snakeList;
-		Nothing(food, point);
+		Nothing(point);
 	}
 }
 

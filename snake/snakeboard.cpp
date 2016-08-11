@@ -12,6 +12,7 @@ SnakeBoard(QWidget *parent)
 	player = Computer;
 	isStarted = false;
 	isPaused = false;
+	boardSize = (BoardWidth - 2) * (BoardHeight - 2);
 }
 
 QSize SnakeBoard::
@@ -151,7 +152,7 @@ tryMove(int d1, int d2){
 				emit levelChanged(level);
 			}
 		}
-		if(filledcount + 1 == (BoardHeight-2) * (BoardWidth-2)) // had fill the board !
+		if(filledcount + 1 == boardSize) // had fill the board !
 			return false;
 		addFood();
 	}
